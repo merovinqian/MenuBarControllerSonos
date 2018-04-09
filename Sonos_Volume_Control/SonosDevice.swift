@@ -38,6 +38,8 @@ public class SonosDevice: Equatable, Hashable {
     public var active: Bool = true
     /// The speakers current colume
     public private(set) var currentVolume = 0
+    private var updateVolume = 0
+    private var isUpdatingVolume = false
     /// State if the device is playing or not
     public var playState = PlayState.notSet
     /// If true the speaker is muted
@@ -129,7 +131,14 @@ public class SonosDevice: Equatable, Hashable {
      - volume: between 0 and 100
      */
     func setVolume(volume: Int){
-        var updateVolume = volume
+        guard isUpdatingVolume == false else {
+            self.currentVolume = volume
+            return
+        }
+        //Update the volume
+        isUpdatingVolume = true
+        
+        updateVolume = volume
         
         if updateVolume < 0 {
             updateVolume = 0
@@ -137,14 +146,20 @@ public class SonosDevice: Equatable, Hashable {
             updateVolume = 100
         }
         
-        guard updateVolume != currentVolume else {return}
+        
+        self.currentVolume = updateVolume
         
         let command = SonosCommand(endpoint: .rendering_endpoint, action: .setVolume, service: .rendering_service)
         command.put(key: "InstanceID", value: "0")
         command.put(key: "Channel", value: "Master")
         command.put(key: "DesiredVolume", value: String(updateVolume))
-        command.execute(sonos: self)
-        self.currentVolume = updateVolume
+        command.execute(sonos: self) { (_) in
+            self.isUpdatingVolume = false
+            if self.currentVolume != self.updateVolume {
+                self.setVolume(volume: self.currentVolume)
+            }
+        }
+        
         
         if self.muted && updateVolume > 0 {
             //Unmute speaker
