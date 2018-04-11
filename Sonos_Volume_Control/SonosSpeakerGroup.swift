@@ -15,19 +15,19 @@ public protocol SonosSpeakerGroupDelegate {
 
 //TODO: Add delegate
 public class SonosSpeakerGroup: Hashable {
-    var name: String
-    let groupID: String
+    public private(set) var name: String
+    public let groupID: String
     private (set) var speakers: Set<SonosDevice> = Set()
     private var speakerOrder: [String]
     public var delegate: SonosSpeakerGroupDelegate?
     
-    var isActive: Bool = false
+    public var isActive: Bool = false
     
-    var trackInfo: SonosTrackInfo? {
+    public var trackInfo: SonosTrackInfo? {
         return self.mainSpeaker?.trackInfo
     }
     
-    init?(groupID: String, firstSpeaker: SonosDevice) {
+    public init?(groupID: String, firstSpeaker: SonosDevice) {
         guard let deviceIds = firstSpeaker.groupState?.deviceIds,
             let name = firstSpeaker.groupState?.name,
             groupID.isEmpty == false
@@ -59,7 +59,7 @@ public class SonosSpeakerGroup: Hashable {
         return volume > 0 ? volume : 1
     }
     
-    func getGroupVolume(_ completion:@escaping (_ vol: Int)->Void ) {
+    public func getGroupVolume(_ completion:@escaping (_ vol: Int)->Void ) {
         var count = speakers.count
         for sonos in speakers {
             sonos.getVolume({ (_) in
@@ -71,7 +71,7 @@ public class SonosSpeakerGroup: Hashable {
         }
     }
     
-    func addSpeaker(_ sonos: SonosDevice) {
+    public func addSpeaker(_ sonos: SonosDevice) {
         guard sonos.groupState?.groupID == self.groupID else {return}
         
         self.speakers.insert(sonos)
@@ -80,13 +80,13 @@ public class SonosSpeakerGroup: Hashable {
         }
     }
     
-    func removeIfGroupChanged(_ sonos: SonosDevice) {
+    public func removeIfGroupChanged(_ sonos: SonosDevice) {
         guard sonos.groupState?.groupID != self.groupID else {return}
         
         self.speakers.remove(sonos)
     }
     
-    func remove(sonos: SonosDevice) {
+    public func remove(sonos: SonosDevice) {
         self.speakers.remove(sonos)
     }
     
@@ -100,7 +100,7 @@ public class SonosSpeakerGroup: Hashable {
         self.delegate?.didChangeActiveState(group: self)
     }
     
-    func setVolume(volume: Int){
+    public func setVolume(volume: Int){
         let groupVolume = self.groupVolume
         let increaseVol = volume - groupVolume
         for sonos in speakers {
@@ -110,13 +110,13 @@ public class SonosSpeakerGroup: Hashable {
         }
     }
 
-    func setMute(muted: Bool) {
+    public func setMute(muted: Bool) {
         for sonos in speakers {
             sonos.setMute(muted: muted)
         }
     }
     
-    func play() {
+    public func play() {
         if let main = self.mainSpeaker {
             main.play()
         }else {
@@ -124,7 +124,7 @@ public class SonosSpeakerGroup: Hashable {
         }
     }
     
-    func pause() {
+    public func pause() {
         if let main = self.mainSpeaker {
             main.pause()
         }else {
@@ -132,7 +132,7 @@ public class SonosSpeakerGroup: Hashable {
         }
     }
     
-    func next() {
+    public func next() {
         if let main = self.mainSpeaker {
             main.next()
         }else {
@@ -140,7 +140,7 @@ public class SonosSpeakerGroup: Hashable {
         }
     }
     
-    func previous() {
+    public func previous() {
         if let main = self.mainSpeaker {
             main.previous()
         }else {
@@ -151,7 +151,7 @@ public class SonosSpeakerGroup: Hashable {
     /**
      Get groups the play state
      */
-    func getPlayState(_ completion: ((_ state: PlayState)->Void)? = nil) {
+    public func getPlayState(_ completion: ((_ state: PlayState)->Void)? = nil) {
         mainSpeaker?.getPlayState(completion)
     }
     
@@ -161,7 +161,7 @@ public class SonosSpeakerGroup: Hashable {
      - Parameters:
      - completion: Callback contains TrackInfo
      */
-    func updateCurrentTrack(_ completion: ((_ trackInfo: SonosTrackInfo)->Void)?=nil) {
+    public func updateCurrentTrack(_ completion: ((_ trackInfo: SonosTrackInfo)->Void)?=nil) {
         self.mainSpeaker?.updateCurrentTrack(completion)
     }
     

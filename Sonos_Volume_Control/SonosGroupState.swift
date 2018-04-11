@@ -14,7 +14,7 @@ public struct SonosGroupState {
     public let groupID: String
     public let deviceIds: [String]
     
-    init?(xml: XMLIndexer) {
+    public init?(xml: XMLIndexer) {
         let attributes = xml["s:Envelope"]["s:Body"]["u:GetZoneGroupAttributesResponse"]
         self.name = attributes["CurrentZoneGroupName"].element?.text ?? "No name"
         guard let gId = attributes["CurrentZoneGroupID"].element?.text else {return nil}
