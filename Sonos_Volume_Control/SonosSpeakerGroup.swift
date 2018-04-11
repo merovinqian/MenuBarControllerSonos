@@ -75,7 +75,7 @@ public class SonosSpeakerGroup: Hashable {
         guard sonos.groupState?.groupID == self.groupID else {return}
         
         self.speakers.insert(sonos)
-        if let groupName = sonos.groupState?.name, !groupName.isEmpty {
+        if let groupName = sonos.groupState?.name, !groupName.isEmpty, self.name != groupName {
             self.name = groupName
         }
     }

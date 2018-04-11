@@ -25,7 +25,7 @@ import SWXMLHash
         artist = xml["dc:creator"].element?.text ?? "Unkown Artist"
         streamContent = xml["r:streamContent"].element?.text
         
-        if title == "Unknown Title" || album == "Unknown Album" || artist == "Unkown Artist" {
+        if title == "Unknown Title" || artist == "Unkown Artist" {
             containsErrors = true
         }
         
