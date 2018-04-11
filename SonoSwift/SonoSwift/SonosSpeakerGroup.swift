@@ -7,7 +7,6 @@
 //
 
 import Cocoa
-import SWXMLHash
 
 public protocol SonosSpeakerGroupDelegate {
     func didChangeActiveState(group: SonosSpeakerGroup)
@@ -90,7 +89,7 @@ public class SonosSpeakerGroup: Hashable {
         self.speakers.remove(sonos)
     }
     
-    @objc func activateDeactivate(button: NSButton) {
+    @objc public  func activateDeactivate(button: NSButton) {
         if button.state == .on {
             self.isActive = true
         }else if button.state == .off {

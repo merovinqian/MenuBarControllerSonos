@@ -8,6 +8,7 @@
 
 import Cocoa
 import SWXMLHash
+import SonoSwift 
 
 class ControlVC: NSViewController {
 

@@ -8,14 +8,14 @@
 
 import Cocoa
 
-extension SonosDeviceInfo {
+internal extension SonosDeviceInfo {
     init(zoneName: String, localUID: String) {
         self.zoneName = zoneName
         self.localUID = localUID
     }
 }
 
-extension SonosGroupState {
+internal extension SonosGroupState {
     init(name: String, groupID: String, deviceIds: [String]) {
         self.groupID = groupID
         self.name = name

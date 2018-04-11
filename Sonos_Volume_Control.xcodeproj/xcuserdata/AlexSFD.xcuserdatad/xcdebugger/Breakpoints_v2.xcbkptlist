@@ -202,7 +202,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Sonos_Volume_Control/ControlVC.swift"
-            timestampString = "545161781.872565"
+            timestampString = "545169296.9676811"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "263"
@@ -297,7 +297,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Sonos_Volume_Control/ControlVC.swift"
-            timestampString = "545161781.873749"
+            timestampString = "545169296.968145"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "157"
@@ -393,7 +393,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Sonos_Volume_Control/ControlVC.swift"
-            timestampString = "545161781.874608"
+            timestampString = "545169296.968428"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "141"
@@ -553,7 +553,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Sonos_Volume_Control/ControlVC.swift"
-            timestampString = "545161781.8756599"
+            timestampString = "545169296.968778"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "93"
@@ -569,7 +569,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Launcher/Launcher/AppDelegate.swift"
-            timestampString = "545161781.875891"
+            timestampString = "545169296.9690011"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "40"
@@ -592,38 +592,6 @@
             endingLineNumber = "18"
             landmarkName = "SonosController"
             landmarkType = "3">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Menu_Bar_Controller_for_Sonos.SonosController.deinit"
-                  moduleName = "Menu Bar Controller for Sonos"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/AlexSFD/Sn0wfreeze-Dev/Frameworks/github/Sonos_Volume_Control/Sonos_Volume_Control/SonosController.swift"
-                  timestampString = "545161782.2953219"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "0"
-                  endingLineNumber = "0"
-                  offsetFromSymbolStart = "4">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Menu_Bar_Controller_for_Sonos.SonosController.__deallocating_deinit"
-                  moduleName = "Menu Bar Controller for Sonos"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/AlexSFD/Sn0wfreeze-Dev/Frameworks/github/Sonos_Volume_Control/Sonos_Volume_Control/SonosController.swift"
-                  timestampString = "545161782.298076"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "0"
-                  endingLineNumber = "0"
-                  offsetFromSymbolStart = "4">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -665,7 +633,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Sonos_Volume_Control/ControlVC.swift"
-            timestampString = "545161781.876654"
+            timestampString = "545169296.96928"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "80"

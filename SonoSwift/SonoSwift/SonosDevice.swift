@@ -228,7 +228,7 @@ public class SonosDevice: Equatable, Hashable {
         command.execute(sonos: self)
     }
     
-    @objc func activateDeactivate(button: NSButton) {
+    @objc public func activateDeactivate(button: NSButton) {
         if button.state == .on {
             self.active = true
         }else if button.state == .off {

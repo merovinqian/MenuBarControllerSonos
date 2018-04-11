@@ -9,14 +9,13 @@
 import Cocoa
 import SWXMLHash
 
-
 public protocol SonosControllerDelegate {
     func didUpdateSpeakers()
     func didUpdateGroups()
 }
 
 public class SonosController {
-    static let shared = SonosController.init()
+    public static let shared = SonosController.init()
     public private(set) var sonosSystems = [SonosDevice]()
     public private(set) var sonosGroups: [String : SonosSpeakerGroup] = [:]
     var lastDiscoveryDeviceList = [SonosDevice]()
@@ -26,11 +25,11 @@ public class SonosController {
     
     public var delegate: SonosControllerDelegate?
     
-    var activeGroup: SonosSpeakerGroup? {
+    public var activeGroup: SonosSpeakerGroup? {
         return self.sonosGroups.values.first(where: {$0.isActive})
     }
     
-    init() {
+    private init() {
         //Show Demo only in demo target
         if (Bundle.main.object(forInfoDictionaryKey: "CFBundleIdentifier") as? String) == "de.sn0wfreeze.Sonos-Volume-Control-Demo" {
             self.showDemo()
@@ -44,7 +43,7 @@ public class SonosController {
      - Parameters:
      - sonos: The Sonos Device which was found and should be added
      */
-    func addDeviceToList(sonos: SonosDevice) {
+    private func addDeviceToList(sonos: SonosDevice) {
         guard sonosSystems.contains(sonos) == false &&
             listOfUnallowedDevices.contains(sonos.modelName) == false else {return}
         
@@ -54,7 +53,7 @@ public class SonosController {
         self.updatedSpeakers()
     }
     
-    func updatedSpeakers() {
+    private func updatedSpeakers() {
         self.detectStereoPairs()
         self.sortSpeakers()
         self.delegate?.didUpdateSpeakers()
@@ -62,7 +61,7 @@ public class SonosController {
     
     
     /// Detects all stereo pairs in the current device lists and removes the uuncontrollable speaker
-    func detectStereoPairs() {
+    private func detectStereoPairs() {
         var stereoPairs = Set<SonosStereoPair>()
         for sonos in self.sonosSystems {
             //Find stereo pair
@@ -84,7 +83,7 @@ public class SonosController {
     /**
      Remove old devices which have not been discovered in the last discovery session
      */
-    func removeOldDevices() {
+    private func removeOldDevices() {
         //Remove undiscovered devices
         //All devices which haven't been found on last discovery
         let undiscoveredDevices = self.sonosSystems.filter({self.lastDiscoveryDeviceList.contains($0) == false})
@@ -117,7 +116,7 @@ public class SonosController {
      - Parameters:
      - sonos: The Sonos speaker which should be added to the group
      */
-    func updateGroups(sonos: SonosDevice) {
+    private func updateGroups(sonos: SonosDevice) {
         guard let gId = sonos.groupState?.groupID else {return}
         
         if let group = self.sonosGroups[gId] {
@@ -141,7 +140,7 @@ public class SonosController {
     }
     
     /// Update the groups so all speakers will be added to the correct group
-    func updateGroupSpeakers() {
+    private func updateGroupSpeakers() {
         //The systems will be iterated and added to the correct group
         for sonos in self.sonosSystems {
             guard let gId = sonos.groupState?.groupID,
@@ -153,7 +152,7 @@ public class SonosController {
         }
     }
     
-    func updatedGroups() {
+    private func updatedGroups() {
         self.updateGroupSpeakers()
         self.delegate?.didUpdateGroups()
     }
@@ -165,7 +164,7 @@ public class SonosController {
      - idx: Index at which the equal sonos is placed in sCntrl.sonosSystems
      - sonos: The newly discovered sonos
      */
-    func replaceSonos(atIndex idx: Int, withSonos sonos: SonosDevice) {
+    private func replaceSonos(atIndex idx: Int, withSonos sonos: SonosDevice) {
         let eqSonos = sonosSystems[idx]
         if eqSonos.ip != sonos.ip {
             //Ip address changes
@@ -213,7 +212,7 @@ public class SonosController {
 
 extension SonosController: SSDPDiscoveryDelegate {
     
-    func searchForDevices() {
+    public func searchForDevices() {
         self.stopDiscovery()
         self.lastDiscoveryDeviceList.removeAll()
         
@@ -281,4 +280,6 @@ extension SonosController: SSDPDiscoveryDelegate {
 }
 
 let listOfUnallowedDevices = ["Sonos BOOST", "Sonos Bridge"]
+
+
 
