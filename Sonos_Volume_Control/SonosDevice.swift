@@ -76,7 +76,7 @@ public class SonosDevice: Equatable, Hashable {
     
     //   MARK: - Init
     
-    init(xml: XMLIndexer, url: URL,_ completion: @escaping(_ sonos: SonosDevice)->Void) {
+    public init(xml: XMLIndexer, url: URL,_ completion: @escaping(_ sonos: SonosDevice)->Void) {
         let device = xml["root"]["device"]
         let displayName = device["displayName"].element?.text
         let roomName = device["roomName"].element?.text
@@ -96,7 +96,7 @@ public class SonosDevice: Equatable, Hashable {
         self.getNetworkTopology()
     }
     
-    init(roomName:String, deviceName:String, url:URL, ip: String, udn: String, deviceInfo: SonosDeviceInfo, groupState: SonosGroupState) {
+    public init(roomName:String, deviceName:String, url:URL, ip: String, udn: String, deviceInfo: SonosDeviceInfo, groupState: SonosGroupState) {
         self.roomName = roomName
         self.deviceName = deviceName
         self.url = url
@@ -110,19 +110,19 @@ public class SonosDevice: Equatable, Hashable {
     
     //MARK: - General Info
     
-    var isGroupCoordinator: Bool {
+    public var isGroupCoordinator: Bool {
         return self.groupState?.deviceIds.first == self.deviceInfo?.localUID
     }
     
-    var isSpeaker: Bool {
+    public var isSpeaker: Bool {
         return self.deviceType.contains("Player")
     }
     
-    var canSetVolume: Bool {
+    public var canSetVolume: Bool {
         return self.deviceType.contains("Player")
     }
     
-    func getNetworkTopology() {
+    public func getNetworkTopology() {
         SonosCommand.downloadNetworkTopologyInfo(sonos: self) { (data) in
             guard let xml = self.parseXml(data: data) else {return}
         }
@@ -136,7 +136,7 @@ public class SonosDevice: Equatable, Hashable {
      - Parameters:
      - volume: between 0 and 100
      */
-    func setVolume(volume: Int){
+    public func setVolume(volume: Int){
         guard isUpdatingVolume == false else {
             self.currentVolume = volume
             return
@@ -181,7 +181,7 @@ public class SonosDevice: Equatable, Hashable {
      - Parameters:
      - muted: If true the speaker will be muted
      */
-    func setMute(muted: Bool) {
+    public func setMute(muted: Bool) {
         let command =  SonosCommand(endpoint: .rendering_endpoint, action: .setMute, service: .rendering_service)
         command.put(key: "InstanceID", value: "0")
         command.put(key: "Channel", value: "Master")
@@ -189,7 +189,7 @@ public class SonosDevice: Equatable, Hashable {
         command.execute(sonos: self)
     }
     
-    func play() {
+    public func play() {
         let command = SonosCommand(endpoint: .transport_endpoint, action: .play, service: .transport_service)
         command.put(key: "InstanceID", value: "0")
         command.put(key: "Speed", value: "1")
@@ -200,7 +200,7 @@ public class SonosDevice: Equatable, Hashable {
     /**
      Pause the current song
     */
-    func pause() {
+    public func pause() {
         let command = SonosCommand(endpoint: .transport_endpoint, action: .pause, service: .transport_service)
         command.put(key: "InstanceID", value: "0")
         command.put(key: "Speed", value: "1")
@@ -211,7 +211,7 @@ public class SonosDevice: Equatable, Hashable {
     /**
      Play the next song
     */
-    func next() {
+    public func next() {
         let command = SonosCommand(endpoint: .transport_endpoint, action: .next, service: .transport_service)
         command.put(key: "InstanceID", value: "0")
         command.put(key: "Speed", value: "1")
@@ -221,7 +221,7 @@ public class SonosDevice: Equatable, Hashable {
     /**
      Play the previous song
     */
-    func previous() {
+    public func previous() {
         let command = SonosCommand(endpoint: .transport_endpoint, action: .prev, service: .transport_service)
         command.put(key: "InstanceID", value: "0")
         command.put(key: "Speed", value: "1")
@@ -240,7 +240,7 @@ public class SonosDevice: Equatable, Hashable {
     
     //  MARK: - Updates
     
-    func update(withXML xml: XMLIndexer, url: URL) {
+    public func update(withXML xml: XMLIndexer, url: URL) {
         let device = xml["root"]["device"]
         let displayName = device["displayName"].element?.text
         let roomName = device["roomName"].element?.text
@@ -256,7 +256,7 @@ public class SonosDevice: Equatable, Hashable {
         self.updateAll({})
     }
     
-    func updateAll(_ completion: @escaping ()->Void) {
+    public func updateAll(_ completion: @escaping ()->Void) {
         //      Update the speakers state
         self.updateCurrentVolume()
         self.getPlayState()
@@ -275,7 +275,7 @@ public class SonosDevice: Equatable, Hashable {
     /**
      Update the speakers group state
      */
-    func updateZoneGroupState(_ completion: @escaping ()->Void) {
+    public func updateZoneGroupState(_ completion: @escaping ()->Void) {
         let command = SonosCommand(endpoint: .zone_group_endpoint, action: .getZoneAttributes, service: .zone_group_service)
         command.execute(sonos: self, { (data) in
             guard let xml = self.parseXml(data: data) else {return}
@@ -284,12 +284,12 @@ public class SonosDevice: Equatable, Hashable {
         })
     }
     
-    func updateCurrentVolume() {
+    public func updateCurrentVolume() {
         getVolume { (volume) in }
     }
     
     
-    func updateMute() {
+    public func updateMute() {
         let command = SonosCommand(endpoint: .rendering_endpoint, action: .getMute, service: .rendering_service)
         command.put(key: "InstanceID", value: "0")
         command.put(key: "Channel", value: "Master")
@@ -304,7 +304,7 @@ public class SonosDevice: Equatable, Hashable {
     /**
      Get the speakers current volume
     */
-    func getVolume(_ completion:@escaping (_ volume: Int)->Void) {
+    public func getVolume(_ completion:@escaping (_ volume: Int)->Void) {
         //Update the mute state, too
         self.updateMute()
         
@@ -327,7 +327,7 @@ public class SonosDevice: Equatable, Hashable {
     /**
      Get speakers the play state
     */
-    func getPlayState(_ completion: ((_ state: PlayState)->Void)? = nil) {
+    public func getPlayState(_ completion: ((_ state: PlayState)->Void)? = nil) {
         let command = SonosCommand(endpoint: .transport_endpoint, action: .getTransportInfo, service: .transport_service)
         command.put(key: "InstanceID", value: "0")
         command.execute(sonos: self) { (data) in
@@ -347,7 +347,7 @@ public class SonosDevice: Equatable, Hashable {
      - Parameters:
      - completion: Callback contains TrackInfo
      */
-    func updateCurrentTrack(_ completion: ((_ trackInfo: SonosTrackInfo)->Void)?=nil) {
+    public func updateCurrentTrack(_ completion: ((_ trackInfo: SonosTrackInfo)->Void)?=nil) {
         let command = SonosCommand(endpoint: .transport_endpoint, action: .get_position_info, service: .transport_service)
         command.put(key:"InstanceID",value: "0")
         command.put(key:"Channel",value: "Master")
@@ -379,7 +379,7 @@ public class SonosDevice: Equatable, Hashable {
 //        }
 //    }
     
-    func parseXml(data: Data?) -> XMLIndexer? {
+    internal func parseXml(data: Data?) -> XMLIndexer? {
         guard let data = data else {return nil}
         let xml = SWXMLHash.parse(data)
         return xml

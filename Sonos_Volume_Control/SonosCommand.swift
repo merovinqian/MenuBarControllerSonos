@@ -10,11 +10,7 @@ import Cocoa
 import SWXMLHash
 
 
-class SonosCommandController: NSObject {
-    
-}
-
-class SonosCommand {
+internal class SonosCommand {
     var port: Int = 1400 //Default value
     var endpoint: SonosEndpoint
     var action: SonosActions
