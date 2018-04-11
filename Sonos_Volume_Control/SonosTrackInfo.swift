@@ -19,7 +19,7 @@ import SWXMLHash
     
     public private(set) var containsErrors = false
     
-    init(xml: XMLIndexer) {
+    public init(xml: XMLIndexer) {
         title = xml["dc:title"].element?.text ?? "Unknown Title"
         album = xml["upnp:album"].element?.text ?? "Unknown Album"
         artist = xml["dc:creator"].element?.text ?? "Unkown Artist"
@@ -34,7 +34,7 @@ import SWXMLHash
         }
     }
     
-    func trackText() -> String {
+    public func trackText() -> String {
         if containsErrors,
             let streamContent = self.streamContent {
             return streamContent
@@ -45,7 +45,7 @@ import SWXMLHash
         return "\(title) - \(artist)"
     }
     
-    var description: String {
+    public var description: String {
         return "\(title) - \(artist) - \(album) - \(streamContent ?? "No stream content")"
     }
 }

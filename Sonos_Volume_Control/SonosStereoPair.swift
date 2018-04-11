@@ -8,11 +8,11 @@
 
 import Cocoa
 
-struct SonosStereoPair: Hashable {
-    let controller: SonosDevice
-    let otherSpeaker: SonosDevice
+public struct SonosStereoPair: Hashable {
+    public let controller: SonosDevice
+    public let otherSpeaker: SonosDevice
     
-    init?(s1: SonosDevice, s2: SonosDevice) {
+    public init?(s1: SonosDevice, s2: SonosDevice) {
         guard s1.roomName == s2.roomName && s1 != s2 else {return nil}
         
         if let gID = s1.groupState?.groupID,
@@ -28,7 +28,7 @@ struct SonosStereoPair: Hashable {
         }
     }
     
-    var hashValue: Int {
+    public var hashValue: Int {
         return controller.deviceInfo?.zoneName.hashValue ?? controller.roomName.hashValue
     }
 }

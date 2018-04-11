@@ -13,7 +13,7 @@ public struct SonosDeviceInfo {
     public let zoneName: String
     public let localUID: String
     
-    init?(xml: XMLIndexer) {
+    internal init?(xml: XMLIndexer) {
         let zpInfo = xml["ZPSupportInfo"]["ZPInfo"]
         guard let zoneName =  zpInfo["ZoneName"].element?.text,
             let localUID = zpInfo["LocalUID"].element?.text else {return nil}
