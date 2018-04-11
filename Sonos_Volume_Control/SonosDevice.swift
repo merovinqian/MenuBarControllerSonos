@@ -20,6 +20,8 @@ public class SonosDevice: Equatable, Hashable {
     public private(set) var roomName: String
     /// Name of the device
     public private(set) var deviceName: String
+    /// Model name of the device
+    public private(set) var modelName: String = ""
     /// URL where to find it
     public private(set) var url: URL
     /// IP address of the device
@@ -85,6 +87,10 @@ public class SonosDevice: Equatable, Hashable {
         self.ip = url.host ?? "127.0.0.0"
         self.descriptionXML = xml
         self.udn = device["UDN"].element?.text ?? "no-udn"
+        
+        if let modelName = device["modelName"].element?.text {
+            self.modelName = modelName
+        }
         
         self.updateAll({ completion(self) })
         self.getNetworkTopology()

@@ -70,15 +70,6 @@ class ControlVC: NSViewController {
     func updateSonosDeviceList() {
         guard self.showState == .speakers else {return}
         
-        //Remove error label
-        if self.sCntrl.sonosSystems.count > 0 {
-            self.errorMessageLabel.isHidden = true
-            self.controlsView.isHidden = false
-        }else {
-            self.errorMessageLabel.isHidden = false
-            self.controlsView.isHidden = true
-        }
-        
         //Remove all buttons
         for view in self.sonosStack.subviews {
             self.sonosStack.removeView(view)
@@ -100,15 +91,6 @@ class ControlVC: NSViewController {
     
     func updateGroupsList() {
         guard self.showState == .groups else {return}
-        
-        //Remove error label or show it if necessary
-        if self.sCntrl.sonosGroups.count > 0 {
-            self.errorMessageLabel.isHidden = true
-            self.controlsView.isHidden = false
-        }else {
-            self.errorMessageLabel.isHidden = false
-            self.controlsView.isHidden = true
-        }
         
         //Remove all buttons
         for view in self.sonosStack.subviews {
@@ -422,6 +404,12 @@ extension ControlVC: SonosControllerDelegate {
         
         if self.sCntrl.sonosSystems.count > 0 {
             self.updateState()
+            self.errorMessageLabel.isHidden = true
+            self.controlsView.isHidden = false
+        }else {
+            self.errorMessageLabel.isHidden = false
+            self.controlsView.isHidden = true
+            self.currentTrackLabel.stringValue = ""
         }
     }
 }

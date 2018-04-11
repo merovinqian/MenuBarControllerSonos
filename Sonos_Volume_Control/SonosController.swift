@@ -45,27 +45,16 @@ public class SonosController {
      - sonos: The Sonos Device which was found and should be added
      */
     func addDeviceToList(sonos: SonosDevice) {
-        guard sonosSystems.contains(sonos) == false else {return}
-        
-//        if let stereoPartner = sonosSystems.first(where: {$0.roomName == sonos.roomName && $0.udn != sonos.udn}) {
-//            if let gId = stereoPartner.groupState?.groupID,
-//                gId.isEmpty == false {
-//                //Stereo partner is the controller
-//                stereoPartner.isInStereoSetup = true
-//            }else if let idx = sonosSystems.index(of: stereoPartner) {
-//                self.sonosSystems.remove(at: idx)
-//                //This is the stereo controller
-//                sonos.isInStereoSetup = true
-//                self.sonosSystems.append(sonos)
-//            }
-//        }else {
-//            //New sonos system. Add it to the list
-//            self.sonosSystems.append(sonos)
-//        }
+        guard sonosSystems.contains(sonos) == false &&
+            listOfUnallowedDevices.contains(sonos.modelName) == false else {return}
         
         //New sonos system. Add it to the list
         self.sonosSystems.append(sonos)
         
+        self.updatedSpeakers()
+    }
+    
+    func updatedSpeakers() {
         self.detectStereoPairs()
         self.sortSpeakers()
         self.delegate?.didUpdateSpeakers()
@@ -108,16 +97,18 @@ public class SonosController {
         }
         
         self.sonosSystems = Array(self.lastDiscoveryDeviceList)
-        self.detectStereoPairs()
+
+        self.updatedSpeakers()
         
-        for group in self.sonosGroups.values {
+        let groups = Array(self.sonosGroups.values)
+        for group in groups {
             if group.speakers.count == 0 {
                 //Remove it
                 self.sonosGroups.removeValue(forKey: group.groupID)
             }
         }
         
-        self.delegate?.didUpdateSpeakers()
+        
     }
     
     /**
@@ -146,9 +137,7 @@ public class SonosController {
             }
         }
         
-        self.updateGroupSpeakers()
-        self.delegate?.didUpdateGroups()
-        
+        self.updatedGroups()
     }
     
     /// Update the groups so all speakers will be added to the correct group
@@ -162,6 +151,11 @@ public class SonosController {
                 group.addSpeaker(sonos)
             }
         }
+    }
+    
+    func updatedGroups() {
+        self.updateGroupSpeakers()
+        self.delegate?.didUpdateGroups()
     }
     
     /**
@@ -238,7 +232,7 @@ extension SonosController: SSDPDiscoveryDelegate {
     }
     
     public func discoveredDevice(response: SSDPMSearchResponse, session: SSDPDiscoverySession) {
-        //        print("Found device \(response)")
+                print("Found device \(response.location)")
         retrieveDeviceInfo(response: response)
     }
     
@@ -285,4 +279,6 @@ extension SonosController: SSDPDiscoveryDelegate {
         self.removeOldDevices()
     }
 }
+
+let listOfUnallowedDevices = ["Sonos BOOST", "Sonos Bridge"]
 
