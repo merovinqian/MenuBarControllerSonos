@@ -95,7 +95,8 @@ public class SonosController {
             }
         }
         
-        self.sonosSystems = Array(self.lastDiscoveryDeviceList)
+        let lastDeviceSet = Set<SonosDevice>(self.lastDiscoveryDeviceList.filter({!listOfUnallowedDevices.contains($0.modelName)}))
+        self.sonosSystems = Array(lastDeviceSet)
 
         self.updatedSpeakers()
         
@@ -250,12 +251,11 @@ extension SonosController: SSDPDiscoveryDelegate {
                     self.lastDiscoveryDeviceList.append(sonos)
                 }else {
                     let sonosDevice = SonosDevice(xml: xml, url: response.location, { (sonos) in
+                        guard listOfUnallowedDevices.contains(sonos.modelName) == false else {return}
                         self.updateGroups(sonos: sonos)
-                        
-                        DispatchQueue.main.async {
-                            self.addDeviceToList(sonos: sonos)
-                        }
+                        self.addDeviceToList(sonos: sonos)
                     })
+                    guard listOfUnallowedDevices.contains(sonosDevice.modelName) == false else {return}
                     self.lastDiscoveryDeviceList.append(sonosDevice)
                 }
             }
