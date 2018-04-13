@@ -42,6 +42,7 @@ public class SonosDevice: Equatable, Hashable {
     public private(set) var currentVolume = 0
     private var updateVolume = 0
     private var isUpdatingVolume = false
+    private var lastVolumeSet = Date()
     /// State if the device is playing or not
     public var playState = PlayState.notSet
     /// If true the speaker is muted
@@ -137,12 +138,17 @@ public class SonosDevice: Equatable, Hashable {
      - volume: between 0 and 100
      */
     public func setVolume(volume: Int){
-        guard isUpdatingVolume == false else {
+        guard lastVolumeSet.timeIntervalSinceNow < -0.1 else {
             self.currentVolume = volume
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                guard self.currentVolume != self.updateVolume else {return}
+                self.setVolume(volume: self.currentVolume)
+            }
             return
         }
         //Update the volume
         isUpdatingVolume = true
+        lastVolumeSet = Date()
         
         updateVolume = volume
         
@@ -160,10 +166,6 @@ public class SonosDevice: Equatable, Hashable {
         command.put(key: "Channel", value: "Master")
         command.put(key: "DesiredVolume", value: String(updateVolume))
         command.execute(sonos: self) { (_) in
-            self.isUpdatingVolume = false
-            if self.currentVolume != self.updateVolume {
-                self.setVolume(volume: self.currentVolume)
-            }
         }
         
         
@@ -171,7 +173,7 @@ public class SonosDevice: Equatable, Hashable {
             //Unmute speaker
             self.setMute(muted: false)
         }
-
+        
         print("Updating volume to: ", updateVolume)
     }
     
