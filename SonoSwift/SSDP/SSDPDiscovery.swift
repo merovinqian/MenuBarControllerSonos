@@ -123,7 +123,7 @@ public class SSDPDiscovery: NSObject {
         if let searchTarget = responseSearchTarget {
             // We should not be getting responses with ssdp:all
             if searchTarget == .all {
-                print("Received MSEARCH response with ssdp:all")
+                dPrint("Received MSEARCH response with ssdp:all")
                 return;
             }
             
@@ -260,37 +260,37 @@ extension SSDPDiscovery: GCDAsyncUdpSocketDelegate {
     
     public func udpSocket(_ sock: GCDAsyncUdpSocket, didNotConnect error: Error?) {
         if (error != nil) {
-            print( "Unable to connect \(String(describing: error))")
+            dPrint( "Unable to connect \(String(describing: error))")
         } else {
-            print("Unable to connect")
+            dPrint("Unable to connect")
         }
     }
     
     public func udpSocket(_ sock: GCDAsyncUdpSocket, didSendDataWithTag tag: Int) {
-        print("Sent data")
+        dPrint("Sent data")
     }
     
     public func udpSocket(_ sock: GCDAsyncUdpSocket, didNotSendDataWithTag tag: Int, dueToError error: Error?) {
         if (error != nil) {
-            print("Unable to send data \(String(describing: error))")
+            dPrint("Unable to send data \(String(describing: error))")
         } else {
-            print("Unable to send data")
+            dPrint("Unable to send data")
         }
     }
     
     public func udpSocket(_ sock: GCDAsyncUdpSocket, didReceive data: Data, fromAddress address: Data, withFilterContext filterContext: Any?) {
-//        print("M-SEARCH response handled")
-//        print(String(data: data, encoding: .utf8)!)
+//        dPrint("M-SEARCH response handled")
+//        dPrint(String(data: data, encoding: .utf8)!)
         
         // Ensure we have parsable data
         guard let messageString = String(data: data, encoding: .utf8) else {
-            print("Unable to parse M-SEARCH response")
+            dPrint("Unable to parse M-SEARCH response")
             return
         }
         
         // Construct a real message based on parsing the string message
         guard let message = SSDPMessageParser.parse(response: messageString) else {
-            print("incomplete M-SEARCH response\n\(messageString)")
+            dPrint("incomplete M-SEARCH response\n\(messageString)")
             return
         }
         

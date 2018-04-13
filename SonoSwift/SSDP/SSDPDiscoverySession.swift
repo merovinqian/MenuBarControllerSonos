@@ -148,7 +148,7 @@ public class SSDPDiscoverySession: Equatable {
         
         // Log a check to ensure the session is correctly closed
         if now.timeIntervalSince(self.checkDate) > 30 {
-            print("Session has been running longer than 30 seconds!")
+            dPrint("Session has been running longer than 30 seconds!")
             self.checkDate = now
         }
     }

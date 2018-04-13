@@ -174,7 +174,7 @@ public class SonosDevice: Equatable, Hashable {
             self.setMute(muted: false)
         }
         
-        print("Updating volume to: ", updateVolume)
+        dPrint("Updating volume to: ", updateVolume)
     }
     
     /**

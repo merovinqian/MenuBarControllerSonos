@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		114170582080860C0030EBF2 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114170572080860C0030EBF2 /* Util.swift */; };
 		11DC8632207E90BF00809C2E /* SonoSwift.h in Headers */ = {isa = PBXBuildFile; fileRef = 11DC8630207E90BF00809C2E /* SonoSwift.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		11DC8648207E90EF00809C2E /* SonosDeviceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11DC863F207E90ED00809C2E /* SonosDeviceInfo.swift */; };
 		11DC8649207E90EF00809C2E /* SonosTrackInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11DC8640207E90ED00809C2E /* SonosTrackInfo.swift */; };
@@ -29,6 +30,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		114170572080860C0030EBF2 /* Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
 		11DC862D207E90BF00809C2E /* SonoSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SonoSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		11DC8630207E90BF00809C2E /* SonoSwift.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SonoSwift.h; sourceTree = "<group>"; };
 		11DC8631207E90BF00809C2E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -98,6 +100,7 @@
 				11DC8646207E90EF00809C2E /* SonosStereoPair.swift */,
 				11DC8645207E90EE00809C2E /* PlayState.swift */,
 				11DC8684207E9D5800809C2E /* TestExtensions.swift */,
+				114170572080860C0030EBF2 /* Util.swift */,
 				11DC8630207E90BF00809C2E /* SonoSwift.h */,
 				11DC8631207E90BF00809C2E /* Info.plist */,
 			);
@@ -220,6 +223,7 @@
 				11DC867F207E9D0400809C2E /* SSDPMSearchRequest.swift in Sources */,
 				11DC867C207E9D0400809C2E /* SSDPMSearchResponse.swift in Sources */,
 				11DC864B207E90EF00809C2E /* SonosGroupState.swift in Sources */,
+				114170582080860C0030EBF2 /* Util.swift in Sources */,
 				11DC867D207E9D0400809C2E /* SSDPSearchTarget.swift in Sources */,
 				11DC864A207E90EF00809C2E /* SonosCommand.swift in Sources */,
 				11DC8649207E90EF00809C2E /* SonosTrackInfo.swift in Sources */,
@@ -372,6 +376,7 @@
 					"@loader_path/Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				OTHER_SWIFT_FLAGS = "-DDEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = de.sn0wfreeze.SonoSwift;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -400,6 +405,7 @@
 					"@loader_path/Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				OTHER_SWIFT_FLAGS = "-DRELEASE";
 				PRODUCT_BUNDLE_IDENTIFIER = de.sn0wfreeze.SonoSwift;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;

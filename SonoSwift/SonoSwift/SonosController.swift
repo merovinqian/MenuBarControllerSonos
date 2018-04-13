@@ -217,7 +217,7 @@ extension SonosController: SSDPDiscoveryDelegate {
         self.stopDiscovery()
         self.lastDiscoveryDeviceList.removeAll()
         
-        print("Searching devices")
+        dPrint("Searching devices")
         // Create the request for Sonos ZonePlayer devices
         let zonePlayerTarget = SSDPSearchTarget.deviceType(schema: SSDPSearchTarget.upnpOrgSchema, deviceType: "ZonePlayer", version: 1)
         let request = SSDPMSearchRequest(delegate: self, searchTarget: zonePlayerTarget)
@@ -232,7 +232,7 @@ extension SonosController: SSDPDiscoveryDelegate {
     }
     
     public func discoveredDevice(response: SSDPMSearchResponse, session: SSDPDiscoverySession) {
-                print("Found device \(response.location)")
+                dPrint("Found device \(response.location)")
         retrieveDeviceInfo(response: response)
     }
     
@@ -270,11 +270,11 @@ extension SonosController: SSDPDiscoveryDelegate {
     }
     
     public func discoveredService(response: SSDPMSearchResponse, session: SSDPDiscoverySession) {
-        print("Found service \(response)")
+        dPrint("Found service \(response)")
     }
     
     public func closedSession(_ session: SSDPDiscoverySession) {
-        print("Session closed")
+        dPrint("Session closed")
         self.removeOldDevices()
     }
 }

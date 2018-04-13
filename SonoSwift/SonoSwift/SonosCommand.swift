@@ -39,12 +39,12 @@ internal class SonosCommand {
         
         URLSession.init(configuration: .default).dataTask(with: request) { (data, response, error) in
             if let error = error {
-                print("An error occurred ", error)
+                dPrint("An error occurred ", error)
             }
             completion(data)
             
             if let data = data {
-                print(String.init(data:data, encoding: .utf8) ?? "No response")
+                dPrint(String.init(data:data, encoding: .utf8) ?? "No response")
             }
             }.resume()
     }
@@ -67,16 +67,16 @@ internal class SonosCommand {
         request.addValue("\(self.service.rawValue)#\(self.action.rawValue)", forHTTPHeaderField: "SOAPACTION")
         request.httpBody = body
         
-//        print("Request", request)
-//        print("Body", content)
+//        dPrint("Request", request)
+//        dPrint("Body", content)
         
         URLSession.init(configuration: .default).dataTask(with: request) { (data, response, error) in
             if let error = error {
-                print("An error occurred ", error)
+                dPrint("An error occurred ", error)
             }
             
             if let data = data {
-                print(String.init(data:data, encoding: .utf8) ?? "No response")
+                dPrint(String.init(data:data, encoding: .utf8) ?? "No response")
             }
             
             completion?(data)
