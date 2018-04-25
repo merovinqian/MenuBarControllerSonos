@@ -31,9 +31,6 @@ public class SonosController {
     
     private init() {
         //Show Demo only in demo target
-        if (Bundle.main.object(forInfoDictionaryKey: "CFBundleIdentifier") as? String) == "de.sn0wfreeze.Sonos-Volume-Control-Demo" {
-            self.showDemo()
-        }
     }
     
     //MARK: - Updating Sonos Players
@@ -89,8 +86,8 @@ public class SonosController {
         let undiscoveredDevices = self.sonosSystems.filter({self.lastDiscoveryDeviceList.contains($0) == false})
         for sonos in undiscoveredDevices {
             //Remove speaker from group
-            if let gId  = sonos.groupState?.groupID {
-                let deviceGroup = self.sonosGroups[gId]
+            if sonos.groupState.isEmpty == false {
+                let deviceGroup = self.sonosGroups[sonos.groupState.groupID]
                 deviceGroup?.remove(sonos: sonos)
             }
         }
@@ -118,7 +115,9 @@ public class SonosController {
      - sonos: The Sonos speaker which should be added to the group
      */
     private func updateGroups(sonos: SonosDevice) {
-        guard let gId = sonos.groupState?.groupID else {return}
+        guard sonos.groupState.isEmpty == false else {return}
+
+        let gId = sonos.groupState.groupID
         
         if let group = self.sonosGroups[gId] {
             group.addSpeaker(sonos)
@@ -144,7 +143,8 @@ public class SonosController {
     private func updateGroupSpeakers() {
         //The systems will be iterated and added to the correct group
         for sonos in self.sonosSystems {
-            guard let gId = sonos.groupState?.groupID,
+            let gId = sonos.groupState.groupID
+            guard sonos.groupState.isEmpty == false,
                 let group = self.sonosGroups[gId] else {continue}
             //Check if the group contains the speaker already
             if group.speakers.contains(sonos) == false {
@@ -181,33 +181,27 @@ public class SonosController {
         
         let t1 = SonosDevice(roomName: "Bedroom_3", deviceName: "PLAY:3", url: URL(string:"http://192.168.178.91")!, ip: "192.168.178.91", udn: "some-udn-1", deviceInfo: SonosDeviceInfo(zoneName: "Bedroom_3+1", localUID: "01"), groupState: SonosGroupState(name: "Bedroom", groupID: "01", deviceIds: ["01", "02"]))
         t1.playState = .playing
-        self.addDeviceToList(sonos: t1)
-        self.updateGroups(sonos: t1)
+        self.discoveredDevice(sonos: t1)
         
         let t2 = SonosDevice(roomName: "Bedroom_1", deviceName: "One", url: URL(string:"http://192.168.178.92")!, ip: "192.168.178.92", udn: "some-udn-2", deviceInfo:SonosDeviceInfo(zoneName: "Bedroom_3+1", localUID: "02"), groupState:  SonosGroupState(name: "Bedroom", groupID: "01", deviceIds: ["01", "02"]))
         t2.playState = .playing
-        self.addDeviceToList(sonos: t2)
-        self.updateGroups(sonos: t2)
+        self.discoveredDevice(sonos: t2)
         
         let t3 = SonosDevice(roomName: "Kitchen", deviceName: "PLAY:1", url: URL(string:"http://192.168.178.93")!, ip: "192.168.178.93", udn: "some-udn-3",
                              deviceInfo: SonosDeviceInfo(zoneName: "Kitchen", localUID: "03"), groupState: SonosGroupState(name: "Kitchen", groupID: "03", deviceIds: ["03"]))
         t3.playState = .paused
-        self.addDeviceToList(sonos: t3)
-        self.updateGroups(sonos: t3)
+        self.discoveredDevice(sonos: t3)
         
         let t4 = SonosDevice(roomName: "Living room", deviceName: "PLAY:5", url: URL(string:"http://192.168.178.94")!, ip: "192.168.178.94", udn: "some-udn-4",
                              deviceInfo: SonosDeviceInfo(zoneName: "Living room", localUID: "04"),
                              groupState: SonosGroupState(name: "Living room", groupID: "04", deviceIds: ["04", "05"]))
         t4.playState = .paused
-        self.addDeviceToList(sonos: t4)
-        self.updateGroups(sonos: t4)
+        self.discoveredDevice(sonos: t4)
         
-        //        let t5 = SonosController(roomName: "Living room_2", deviceName: "PLAY:5", url: URL(string:"http://192.168.178.95")!, ip: "192.168.178.95", udn: "some-udn-5")
-        //        t5.playState = .paused
-        //        t5.deviceInfo = SonosDeviceInfo(zoneName: "Living room", localUID: "05")
-        //        t5.groupState = sCntrl.sonosGroupstate(name: "Living room", groupID: "04", deviceIds: ["04", "05"])
-        //        self.addDeviceToList(sonos: t5)
-        //        self.updateGroups(sonos: t5)
+        let t5 = SonosDevice(roomName: "Living room_2", deviceName: "PLAY:5", url: URL(string:"http://192.168.178.95")!, ip: "192.168.178.95", udn: "some-udn-5",
+                                 deviceInfo: SonosDeviceInfo(zoneName: "Living room", localUID: "05"),groupState: SonosGroupState(name: "", groupID: "", deviceIds: []))
+        t5.playState = .paused
+        self.discoveredDevice(sonos: t5)
     }
     
     public func createDebugReport() -> String {
@@ -226,6 +220,11 @@ extension SonosController: SSDPDiscoveryDelegate {
     public func searchForDevices() {
         self.stopDiscovery()
         self.lastDiscoveryDeviceList.removeAll()
+        
+        if (Bundle.main.object(forInfoDictionaryKey: "CFBundleIdentifier") as? String) == "de.sn0wfreeze.Sonos-Volume-Control-Demo" {
+            self.showDemo()
+            return
+        }
         
         dPrint("Searching devices")
         // Create the request for Sonos ZonePlayer devices
@@ -256,20 +255,28 @@ extension SonosController: SSDPDiscoveryDelegate {
                     //Update the device
                     sonos.update(withXML: xml, url: response.location)
                     sonos.updateAll {
-                        self.updateGroups(sonos: sonos)
+                        self.discoveredDevice(sonos: sonos)
                     }
-                    self.lastDiscoveryDeviceList.append(sonos)
                 }else {
-                    let sonosDevice = SonosDevice(xml: xml, url: response.location, { (sonos) in
-                        guard listOfUnallowedDevices.contains(sonos.modelName) == false else {return}
-                        self.updateGroups(sonos: sonos)
-                        self.addDeviceToList(sonos: sonos)
+                    //Add a new device
+                    SonosDevice(xml: xml, url: response.location, { (sonos) in
+                       self.discoveredDevice(sonos: sonos)
                     })
-                    guard listOfUnallowedDevices.contains(sonosDevice.modelName) == false else {return}
-                    self.lastDiscoveryDeviceList.append(sonosDevice)
                 }
             }
             }.resume()
+    }
+    
+    
+    /// A new SonosDevice has been discovered and initialized. Update the device list and groups
+    ///
+    /// - Parameter sonos: the newly discovered device
+    func discoveredDevice(sonos: SonosDevice) {
+        guard listOfUnallowedDevices.contains(sonos.modelName) == false,
+            sonos.groupState.isEmpty == false else {return}
+        self.lastDiscoveryDeviceList.append(sonos)
+        self.updateGroups(sonos: sonos)
+        self.addDeviceToList(sonos: sonos)
     }
     
     func sortSpeakers() {

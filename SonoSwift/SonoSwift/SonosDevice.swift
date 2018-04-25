@@ -51,7 +51,7 @@ public class SonosDevice: Equatable, Hashable {
     public private(set) var trackInfo: SonosTrackInfo?
     
     /// The speakers current group state
-    public private(set) var groupState: SonosGroupState?
+    public private(set) var groupState: SonosGroupState = SonosGroupState()
     
     /// Speakers device info
     public private(set) var deviceInfo: SonosDeviceInfo?
@@ -112,7 +112,7 @@ public class SonosDevice: Equatable, Hashable {
     //MARK: - General Info
     
     public var isGroupCoordinator: Bool {
-        return self.groupState?.deviceIds.first == self.deviceInfo?.localUID
+        return self.groupState.deviceIds.first == self.deviceInfo?.localUID
     }
     
     public var isSpeaker: Bool {
@@ -407,7 +407,7 @@ public class SonosDevice: Equatable, Hashable {
         current Volume: \(currentVolume)
         Play state: \(playState)
         \(trackInfo?.debugDescription ?? "No Track info")
-        \(groupState?.debugDescription ?? "No group state")
+        \(groupState.debugDescription ?? "No group state")
         \(deviceInfo?.debugDescription ?? "No device info")
         """
         

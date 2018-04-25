@@ -14,14 +14,22 @@ public struct SonosGroupState {
     public let groupID: String
     public let deviceIds: [String]
     
-    public init?(xml: XMLIndexer) {
+    public init(xml: XMLIndexer) {
         let attributes = xml["s:Envelope"]["s:Body"]["u:GetZoneGroupAttributesResponse"]
-        self.name = attributes["CurrentZoneGroupName"].element?.text ?? "No name"
-        guard let gId = attributes["CurrentZoneGroupID"].element?.text else {return nil}
+        self.name = attributes["CurrentZoneGroupName"].element?.text ?? ""
+        let gId = attributes["CurrentZoneGroupID"].element?.text ?? ""
         self.groupID = gId
-        guard let deviceIdString = attributes["CurrentZonePlayerUUIDsInGroup"].element?.text else {return nil}
+        let deviceIdString = attributes["CurrentZonePlayerUUIDsInGroup"].element?.text ?? ""
         self.deviceIds =  deviceIdString.split(separator: ",").map({String($0)})
         
+    }
+    
+    
+    /// This creates an empty group state, which cannot be changed
+    internal init() {
+        name = ""
+        groupID = ""
+        deviceIds = []
     }
     
     internal var debugDescription: String {
@@ -33,5 +41,9 @@ public struct SonosGroupState {
         Group id: \(groupID)
         device ids: \(deviceIds.joined(separator:","))
         """
+    }
+    
+    var isEmpty: Bool {
+        return groupID.isEmpty
     }
 }

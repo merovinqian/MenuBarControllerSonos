@@ -27,14 +27,11 @@ public class SonosSpeakerGroup: Hashable {
     }
     
     public init?(groupID: String, firstSpeaker: SonosDevice) {
-        guard let deviceIds = firstSpeaker.groupState?.deviceIds,
-            let name = firstSpeaker.groupState?.name,
-            groupID.isEmpty == false
-            else {return nil}
+        guard firstSpeaker.groupState.isEmpty == false else {return nil}
         
         self.groupID = groupID
-        self.speakerOrder = deviceIds
-        self.name = name
+        self.speakerOrder = firstSpeaker.groupState.deviceIds
+        self.name = firstSpeaker.groupState.name
         self.addSpeaker(firstSpeaker)
     }
     
@@ -71,16 +68,16 @@ public class SonosSpeakerGroup: Hashable {
     }
     
     public func addSpeaker(_ sonos: SonosDevice) {
-        guard sonos.groupState?.groupID == self.groupID else {return}
+        guard sonos.groupState.groupID == self.groupID else {return}
         
         self.speakers.insert(sonos)
-        if let groupName = sonos.groupState?.name, !groupName.isEmpty, self.name != groupName {
-            self.name = groupName
+        if !sonos.groupState.name.isEmpty && self.name != sonos.groupState.name {
+            self.name = sonos.groupState.name
         }
     }
     
     public func removeIfGroupChanged(_ sonos: SonosDevice) {
-        guard sonos.groupState?.groupID != self.groupID else {return}
+        guard sonos.groupState.groupID != self.groupID else {return}
         
         self.speakers.remove(sonos)
     }
