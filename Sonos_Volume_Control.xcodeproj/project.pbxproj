@@ -16,6 +16,8 @@
 		111125422090BAED00F4E822 /* CocoaAsyncSocket.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 11F64C0D2050A2AE005ED2E3 /* CocoaAsyncSocket.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		111125432090BAED00F4E822 /* Weak.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 11F64C0C2050A2AE005ED2E3 /* Weak.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		111125442090BAF400F4E822 /* SonoSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 11DC863E207E90C100809C2E /* SonoSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1111254B2090CC3600F4E822 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1115C40D20751C57009494A5 /* Localizable.strings */; };
+		1111254C2090CC3600F4E822 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1115C40D20751C57009494A5 /* Localizable.strings */; };
 		1115C40F20751C57009494A5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1115C40D20751C57009494A5 /* Localizable.strings */; };
 		1116E9D32040C015009D940F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1116E9D22040C015009D940F /* AppDelegate.swift */; };
 		1116E9D72040C015009D940F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1116E9D62040C015009D940F /* Assets.xcassets */; };
@@ -498,6 +500,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				112617CD2089242E008005E6 /* Assets.xcassets in Resources */,
+				1111254C2090CC3600F4E822 /* Localizable.strings in Resources */,
 				112617CE2089242E008005E6 /* Main.storyboard in Resources */,
 				112617CF2089242E008005E6 /* SampleAudio_0.4mb.mp3 in Resources */,
 			);
@@ -508,6 +511,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1145356E206BBEF5008C8FC6 /* Assets.xcassets in Resources */,
+				1111254B2090CC3600F4E822 /* Localizable.strings in Resources */,
 				1145356F206BBEF5008C8FC6 /* Main.storyboard in Resources */,
 				11453570206BBEF5008C8FC6 /* SampleAudio_0.4mb.mp3 in Resources */,
 			);

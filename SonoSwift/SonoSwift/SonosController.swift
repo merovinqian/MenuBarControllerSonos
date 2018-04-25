@@ -17,6 +17,7 @@ public protocol SonosControllerDelegate {
 public class SonosController {
     public static let shared = SonosController.init()
     public private(set) var sonosSystems = [SonosDevice]()
+    private var unlistedSystems = Set<SonosDevice>()
     public private(set) var sonosGroups: [String : SonosSpeakerGroup] = [:]
     var lastDiscoveryDeviceList = [SonosDevice]()
     
@@ -51,30 +52,8 @@ public class SonosController {
     }
     
     private func updatedSpeakers() {
-        self.detectStereoPairs()
         self.sortSpeakers()
         self.delegate?.didUpdateSpeakers()
-    }
-    
-    
-    /// Detects all stereo pairs in the current device lists and removes the uuncontrollable speaker
-    private func detectStereoPairs() {
-        var stereoPairs = Set<SonosStereoPair>()
-        for sonos in self.sonosSystems {
-            //Find stereo pair
-            let pair = self.sonosSystems.filter({$0.roomName == sonos.roomName})
-            if pair.count == 2,
-                let sPair = SonosStereoPair(s1: pair.first!, s2: pair.last!) {
-                stereoPairs.insert(sPair)
-            }
-        }
-        
-        //Remove the other speaker from the list of Stereo Pair speakers
-        for pair in stereoPairs {
-            guard let idx = self.sonosSystems.index(of: pair.otherSpeaker) else {continue}
-            self.sonosSystems.remove(at: idx)
-            pair.controller.isInStereoSetup = true
-        }
     }
     
     /**
@@ -193,20 +172,30 @@ public class SonosController {
         self.discoveredDevice(sonos: t3)
         
         let t4 = SonosDevice(roomName: "Living room", deviceName: "PLAY:5", url: URL(string:"http://192.168.178.94")!, ip: "192.168.178.94", udn: "some-udn-4",
-                             deviceInfo: SonosDeviceInfo(zoneName: "Living room", localUID: "04"),
+                             deviceInfo: SonosDeviceInfo(zoneName: "Living room (RL)", localUID: "04"),
                              groupState: SonosGroupState(name: "Living room", groupID: "04", deviceIds: ["04", "05"]))
         t4.playState = .paused
         self.discoveredDevice(sonos: t4)
         
-        let t5 = SonosDevice(roomName: "Living room_2", deviceName: "PLAY:5", url: URL(string:"http://192.168.178.95")!, ip: "192.168.178.95", udn: "some-udn-5",
-                                 deviceInfo: SonosDeviceInfo(zoneName: "Living room", localUID: "05"),groupState: SonosGroupState(name: "", groupID: "", deviceIds: []))
+        let t5 = SonosDevice(roomName: "Living room", deviceName: "PLAY:5", url: URL(string:"http://192.168.178.95")!, ip: "192.168.178.95", udn: "some-udn-5",
+                                 deviceInfo: SonosDeviceInfo(zoneName: "Living room (RR)", localUID: "05"),groupState: SonosGroupState(name: "", groupID: "", deviceIds: []))
         t5.playState = .paused
         self.discoveredDevice(sonos: t5)
+        
+        
+        
+//        let t6 = SonosDevice(roomName: "Living room", deviceName: "Playbase", url: URL(string:"http://192.168.178.94")!, ip: "192.168.178.94", udn: "some-udn-6",
+//                             deviceInfo: SonosDeviceInfo(zoneName: "Living room", localUID: "06"),
+//                             groupState: SonosGroupState())
+//        t6.playState = .paused
+//        self.discoveredDevice(sonos: t6)
+        
+
     }
     
     public func createDebugReport() -> String {
         var sonosReport = "Sonos Debug Report - \(Date().description)"
-        for sonos in sonosSystems {
+        for sonos in unlistedSystems {
             sonosReport += "\n\n\n" + sonos.debugDescription
         }
         
@@ -220,6 +209,7 @@ extension SonosController: SSDPDiscoveryDelegate {
     public func searchForDevices() {
         self.stopDiscovery()
         self.lastDiscoveryDeviceList.removeAll()
+        self.unlistedSystems.removeAll()
         
         if (Bundle.main.object(forInfoDictionaryKey: "CFBundleIdentifier") as? String) == "de.sn0wfreeze.Sonos-Volume-Control-Demo" {
             self.showDemo()
@@ -272,11 +262,45 @@ extension SonosController: SSDPDiscoveryDelegate {
     ///
     /// - Parameter sonos: the newly discovered device
     func discoveredDevice(sonos: SonosDevice) {
-        guard listOfUnallowedDevices.contains(sonos.modelName) == false,
-            sonos.groupState.isEmpty == false else {return}
-        self.lastDiscoveryDeviceList.append(sonos)
-        self.updateGroups(sonos: sonos)
-        self.addDeviceToList(sonos: sonos)
+        guard listOfUnallowedDevices.contains(sonos.modelName) == false else {return}
+        self.unlistedSystems.insert(sonos)
+        
+        if sonos.groupState.isEmpty {
+            //This is a paired device. Don't show these devices. But updated the paired count on others
+            
+            //Count the paired devices
+            let pairedSpeaker = sonosSystems.first(where: {$0.roomName == sonos.roomName})
+            let pairedSpeakersCount  = self.unlistedSystems.filter({$0.roomName == sonos.roomName && $0 != sonos}).count
+            pairedSpeaker?.pairedSpeakers = pairedSpeakersCount
+            
+            //Update the view
+            self.updatedSpeakers()
+        }else if let sonos = self.sonosSystems.first(where: {$0 == sonos}) {
+            // Device is already in the list of devices. Update the actual shown device
+            
+            self.lastDiscoveryDeviceList.append(sonos)
+            self.updateGroups(sonos: sonos)
+            
+            //Count paired devices
+            let pairedSpeakersCount  = self.unlistedSystems.filter({$0.roomName == sonos.roomName && $0 != sonos}).count
+            if sonos.pairedSpeakers != pairedSpeakersCount {
+                sonos.pairedSpeakers = pairedSpeakersCount
+                self.updatedSpeakers()
+            }
+        }else {
+            // This is a completely new device
+            
+            //Count paired devices
+            let pairedSpeakersCount  = self.unlistedSystems.filter({$0.roomName == sonos.roomName && $0 != sonos}).count
+            if sonos.pairedSpeakers != pairedSpeakersCount {
+                sonos.pairedSpeakers = pairedSpeakersCount
+                self.updatedSpeakers()
+            }
+            
+            self.lastDiscoveryDeviceList.append(sonos)
+            self.updateGroups(sonos: sonos)
+            self.addDeviceToList(sonos: sonos)
+        }
     }
     
     func sortSpeakers() {

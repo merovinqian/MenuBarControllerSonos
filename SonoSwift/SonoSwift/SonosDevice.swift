@@ -67,13 +67,23 @@ public class SonosDevice: Equatable, Hashable {
 //            return "\(zoneName) - \(deviceName)"
 //        }
         var rName = "\(roomName) - \(deviceName)"
-        if isInStereoSetup {
+        if pairedSpeakers == 1 {
             rName += " (\(NSLocalizedString("Stereo", comment: "")))"
+        }else if pairedSpeakers > 1 {
+            // Sound system setup
+            rName = "\(roomName) - \(NSLocalizedString("Home theater", comment: "Device name when using a sound system"))"
         }
         return rName
     }
     
-    internal var isInStereoSetup = false
+    
+    /// This value counts the number of paired speakers
+    internal var pairedSpeakers = 0 {
+        didSet {
+            dPrint("Paired speakers: \(pairedSpeakers)")
+        }
+    }
+    
     
     //   MARK: - Init
     
@@ -260,6 +270,7 @@ public class SonosDevice: Equatable, Hashable {
     
     public func updateAll(_ completion: @escaping ()->Void) {
         //      Update the speakers state
+        self.pairedSpeakers = 0
         self.updateCurrentVolume()
         self.getPlayState()
         self.updateCurrentTrack()
@@ -396,7 +407,7 @@ public class SonosDevice: Equatable, Hashable {
     }
     
     var debugDescription: String {
-        var debugString = """
+        let debugString = """
         \(readableName)
         ----------------------------------
         Model name: \(modelName)

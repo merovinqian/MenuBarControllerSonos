@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		111125472090CC0200F4E822 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 111125492090CC0200F4E822 /* Localizable.strings */; };
 		114170582080860C0030EBF2 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114170572080860C0030EBF2 /* Util.swift */; };
 		11DC8632207E90BF00809C2E /* SonoSwift.h in Headers */ = {isa = PBXBuildFile; fileRef = 11DC8630207E90BF00809C2E /* SonoSwift.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		11DC8648207E90EF00809C2E /* SonosDeviceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11DC863F207E90ED00809C2E /* SonosDeviceInfo.swift */; };
@@ -30,6 +31,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		111125482090CC0200F4E822 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		1111254A2090CC0C00F4E822 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		114170572080860C0030EBF2 /* Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
 		11DC862D207E90BF00809C2E /* SonoSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SonoSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		11DC8630207E90BF00809C2E /* SonoSwift.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SonoSwift.h; sourceTree = "<group>"; };
@@ -103,6 +106,7 @@
 				114170572080860C0030EBF2 /* Util.swift */,
 				11DC8630207E90BF00809C2E /* SonoSwift.h */,
 				11DC8631207E90BF00809C2E /* Info.plist */,
+				111125492090CC0200F4E822 /* Localizable.strings */,
 			);
 			path = SonoSwift;
 			sourceTree = "<group>";
@@ -185,6 +189,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				de,
 			);
 			mainGroup = 11DC8623207E90BF00809C2E;
 			productRefGroup = 11DC862E207E90BF00809C2E /* Products */;
@@ -201,6 +206,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				111125472090CC0200F4E822 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -235,11 +241,24 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXVariantGroup section */
+		111125492090CC0200F4E822 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				111125482090CC0200F4E822 /* en */,
+				1111254A2090CC0C00F4E822 /* de */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
 		11DC8633207E90BF00809C2E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -303,6 +322,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
