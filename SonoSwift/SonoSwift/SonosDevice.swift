@@ -394,4 +394,25 @@ public class SonosDevice: Equatable, Hashable {
     public var hashValue: Int {
         return self.deviceInfo?.localUID.hashValue ?? "no-id".hashValue
     }
+    
+    var debugDescription: String {
+        var debugString = """
+        \(readableName)
+        ----------------------------------
+        Model name: \(modelName)
+        Device ip: \(ip)
+        UDN: \(udn)
+        Device Type: \(deviceType)
+        isActive: \(active)
+        current Volume: \(currentVolume)
+        Play state: \(playState)
+        \(trackInfo?.debugDescription ?? "No Track info")
+        \(groupState?.debugDescription ?? "No group state")
+        \(deviceInfo?.debugDescription ?? "No device info")
+        """
+        
+        return debugString
+    }
+    
+    
 }

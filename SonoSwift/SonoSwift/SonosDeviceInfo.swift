@@ -20,4 +20,14 @@ public struct SonosDeviceInfo {
         self.localUID = localUID
         self.zoneName = zoneName
     }
+    
+    internal var debugDescription: String {
+        return """
+        
+        DEVICE INFO
+        ----------------------
+        zoneName: \(zoneName)
+        localUID: \(localUID)
+        """
+    }
 }

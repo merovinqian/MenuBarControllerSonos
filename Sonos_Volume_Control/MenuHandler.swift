@@ -80,4 +80,29 @@ extension ControlVC {
             UserDefaults.standard.isLaunchAtLoginEnabled = false
         }
     }
+    
+    @objc func createDebugReport() {
+        let report = self.sCntrl.createDebugReport()
+    
+        
+        // get URL to the the documents directory in the sandbox
+        let documentsUrl = FileManager.default.urls(for: FileManager.SearchPathDirectory.documentDirectory, in: FileManager.SearchPathDomainMask.userDomainMask).first!
+        
+        // add a filename
+        let fileUrl = documentsUrl.appendingPathComponent("report.txt")
+        
+        // write to it
+        try? report.write(to: fileUrl, atomically: true, encoding: .utf8)
+        
+        //Send e-mail with report
+        
+        let email = "sonos-controller@sn0wfreeze.de"
+        
+        let sharingService = NSSharingService(named: .composeEmail)
+        sharingService?.recipients = [email] //could be more than one
+        sharingService?.subject = "Sonos Debug Report"
+        let items: [Any] = ["Debug Report attached to this e-mail", fileUrl] //the interesting part, here you add body text as well as URL for the document you'd like to share
+        
+        sharingService?.perform(withItems: items)
+    }
 }

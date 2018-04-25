@@ -48,4 +48,18 @@ import SWXMLHash
     public var description: String {
         return "\(title) - \(artist) - \(album) - \(streamContent ?? "No stream content")"
     }
+    
+    internal var debugDescription: String {
+        return """
+        
+        TRACK INFO
+        --------------------
+        title: \(title)
+        album: \(album)
+        artist: \(artist)
+        streamContent: \(streamContent)
+        isPlayingRadio: \(isPlayingRadio)
+        playMedium: \(playMedium)
+        """
+    }
 }

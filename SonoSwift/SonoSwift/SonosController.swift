@@ -209,6 +209,16 @@ public class SonosController {
         //        self.addDeviceToList(sonos: t5)
         //        self.updateGroups(sonos: t5)
     }
+    
+    public func createDebugReport() -> String {
+        var sonosReport = "Sonos Debug Report - \(Date().description)"
+        for sonos in sonosSystems {
+            sonosReport += "\n\n\n" + sonos.debugDescription
+        }
+        
+        print(sonosReport)
+        return sonosReport
+    }
 }
 
 extension SonosController: SSDPDiscoveryDelegate {

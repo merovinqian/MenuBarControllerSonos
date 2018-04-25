@@ -38,6 +38,8 @@ class ControlVC: NSViewController {
     
     var isAnimating = false
     
+    var firstStart = false
+    
     //MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,6 +51,7 @@ class ControlVC: NSViewController {
             errorMessageLabel.isHidden = false
         }
         
+        firstStart = true
     }
     
     override func viewWillAppear() {
@@ -179,6 +182,7 @@ class ControlVC: NSViewController {
     }
     
     func updateTrackLabel(withTrack track: String) {
+        guard track != self.currentTrackLabel.stringValue else {return}
         self.stopAnimations()
         self.currentTrackLabel.stringValue = track
         
@@ -364,10 +368,13 @@ class ControlVC: NSViewController {
         appMenu.addItem(NSMenuItem.separator())
         appMenu.addItem(withTitle: NSLocalizedString("Quit", comment: "menu item"), action: #selector(quitApp), keyEquivalent: "")
         
+        if (Bundle.main.object(forInfoDictionaryKey: "CFBundleIdentifier") as? String) == "de.sn0wfreeze.Sonos-Volume-Control-Debug" {
+            appMenu.addItem(NSMenuItem.separator())
+            appMenu.addItem(withTitle: NSLocalizedString("Create Debug Report", comment: "menu item"), action: #selector(createDebugReport), keyEquivalent: "")
+        }
         
         let p = NSPoint(x: sender.frame.origin.x, y: sender.frame.origin.y - (sender.frame.height / 2))
         appMenu.popUp(positioning: nil, at: p, in: sender.superview)
-        
         
     }
     
@@ -379,10 +386,24 @@ class ControlVC: NSViewController {
 
 extension ControlVC: SonosControllerDelegate {
     func didUpdateSpeakers() {
+        if let lastSelected = UserDefaults.standard.activeSpeakerUDNs {
+            let inActiveSpeakers = self.sCntrl.sonosSystems.filter({!lastSelected.contains($0.udn)})
+            inActiveSpeakers.forEach({$0.active = false})
+        }        
         self.update()
     }
     
     func didUpdateGroups() {
+        if let lastGroupId = UserDefaults.standard.activeGroupId {
+            self.sCntrl.sonosGroups.values.forEach { (group) in
+                if group.groupID == lastGroupId {
+                    group.isActive = true
+                }else {
+                    group.isActive = false
+                }
+            }
+        }
+        
         switch self.showState {
         case .speakers:
             self.updateSonosDeviceList()
@@ -435,6 +456,7 @@ extension ControlVC {
 extension ControlVC: SonosDeviceDelegate {
     func didUpdateActiveState(forSonos sonos: SonosDevice, isActive: Bool) {
         self.updateState()
+        UserDefaults.standard.activeSpeakerUDNs = self.sCntrl.sonosSystems.filter({$0.active}).map({$0.udn})
     }
 }
 
@@ -447,6 +469,8 @@ extension ControlVC: SonosSpeakerGroupDelegate {
             self.groupButtons[g]?.state = .off
         }
         self.updateState()
+        
+        UserDefaults.standard.activeGroupId = self.sCntrl.activeGroup?.groupID
     }
 }
 

@@ -49,3 +49,6 @@
 
 /* No comment provided by engineer. */
 "Stereo" = "Stereo";
+
+/* menu item */
+"Create Debug Report" = "Create Debug Report";

@@ -21,5 +21,17 @@ public struct SonosGroupState {
         self.groupID = gId
         guard let deviceIdString = attributes["CurrentZonePlayerUUIDsInGroup"].element?.text else {return nil}
         self.deviceIds =  deviceIdString.split(separator: ",").map({String($0)})
+        
+    }
+    
+    internal var debugDescription: String {
+        return """
+        
+        GROUP STATE:
+        ---------------------
+        Group name: \(name)
+        Group id: \(groupID)
+        device ids: \(deviceIds.joined(separator:","))
+        """
     }
 }

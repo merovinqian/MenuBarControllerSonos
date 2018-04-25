@@ -18,4 +18,25 @@ extension UserDefaults {
             self.synchronize()
         }
     }
+    
+    var activeSpeakerUDNs: [String]? {
+        get {
+            return self.array(forKey: "activeSpeakerUDNs") as? [String]
+        }
+        set(v) {
+            self.set(v, forKey: "activeSpeakerUDNs")
+            self.synchronize()
+        }
+    }
+    
+    /// Get the last active group id 
+    var activeGroupId: String? {
+        get {
+            return self.string(forKey: "activeGroupId")
+        }
+        set(v) {
+            self.set(v, forKey: "activeGroupId")
+            self.synchronize()
+        }
+    }
 }

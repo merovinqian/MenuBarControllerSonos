@@ -4,10 +4,15 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>DemoTestTarget.xcscheme</key>
+		<key>DebugTarget.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>1</integer>
+		</dict>
+		<key>DemoTestTarget.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
 		</dict>
 		<key>Menu Bar Controller for Sonos.xcscheme</key>
 		<dict>
@@ -28,6 +33,11 @@
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
 		<key>1116E9CE2040C015009D940F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>112617C02089242E008005E6</key>
 		<dict>
 			<key>primary</key>
 			<true/>
