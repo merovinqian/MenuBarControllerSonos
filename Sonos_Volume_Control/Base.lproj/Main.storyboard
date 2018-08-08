@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14109"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14113"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
         <capability name="stacking Non-gravity area distributions on NSStackView" minToolsVersion="7.0" minSystemVersion="10.11"/>
         <capability name="system font weights other than Regular or Bold" minToolsVersion="7.0"/>
@@ -677,7 +677,7 @@
                         <outlet property="delegate" destination="Voe-Tx-rLC" id="PrD-fu-P6m"/>
                     </connections>
                 </application>
-                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="DemoTestTarget" customModuleProvider="target"/>
+                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="DebugTarget" customModuleProvider="target"/>
                 <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -686,7 +686,7 @@
         <!--ControlVC-->
         <scene sceneID="94k-eK-MxV">
             <objects>
-                <viewController storyboardIdentifier="VolumeControlVC" id="UOE-Qu-9Vt" customClass="ControlVC" customModule="DemoTestTarget" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="VolumeControlVC" id="UOE-Qu-9Vt" customClass="ControlVC" customModule="DebugTarget" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="Nqb-gx-wcn">
                         <rect key="frame" x="0.0" y="0.0" width="218" height="200"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -711,7 +711,7 @@
                             <customView hidden="YES" translatesAutoresizingMaskIntoConstraints="NO" id="euI-Bt-dbz">
                                 <rect key="frame" x="8" y="25" width="206" height="24"/>
                                 <subviews>
-                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="KtY-82-ql5" customClass="PlayPauseButton" customModule="DemoTestTarget" customModuleProvider="target">
+                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="KtY-82-ql5" customClass="PlayPauseButton" customModule="DebugTarget" customModuleProvider="target">
                                         <rect key="frame" x="91" y="-2" width="24" height="24"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="21" id="5cq-Fn-c7h"/>
@@ -767,9 +767,9 @@
                                     <constraint firstAttribute="height" constant="24" id="tcz-LD-liR"/>
                                 </constraints>
                             </customView>
-                            <scrollView borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="540-Ck-pnu" customClass="CustomScrolllView" customModule="DemoTestTarget" customModuleProvider="target">
+                            <scrollView borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="540-Ck-pnu" customClass="CustomScrolllView" customModule="DebugTarget" customModuleProvider="target">
                                 <rect key="frame" x="8" y="78" width="206" height="88"/>
-                                <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="hjZ-YT-IUj" customClass="CustomScrollClipView" customModule="DemoTestTarget" customModuleProvider="target">
+                                <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="hjZ-YT-IUj" customClass="CustomScrollClipView" customModule="DebugTarget" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="0.0" width="206" height="88"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
@@ -817,8 +817,8 @@
                                 <segmentedCell key="cell" controlSize="small" borderStyle="border" alignment="left" style="rounded" trackingMode="selectOne" id="B1G-5z-Li2">
                                     <font key="font" metaFont="smallSystem"/>
                                     <segments>
-                                        <segment label="Speakers" width="68" selected="YES"/>
-                                        <segment label="Groups" toolTip="Select this to control your Sonos groups" width="68" tag="1"/>
+                                        <segment label="Groups" toolTip="Select this Segment to control your Sonos Groups" width="68" selected="YES"/>
+                                        <segment label="Volume" toolTip="Select this to control to change the volume for your specific speakers" width="68" tag="1"/>
                                     </segments>
                                     <accessibility description="Select &quot;Speakers&quot; to control individual speakers. Select &quot;Groups&quot; to control groups of speakers"/>
                                 </segmentedCell>

@@ -34,7 +34,7 @@ class ControlVC: NSViewController {
     var speakerButtons: [SonosDevice: NSButton] = [:]
     var groupButtons: [SonosSpeakerGroup: NSButton] = [:]
     
-    var showState = ShowState.speakers
+    var showState = ShowState.groups
     
     var isAnimating = false
     
@@ -142,12 +142,20 @@ class ControlVC: NSViewController {
     }
     
     func updateStateForGroupMode() {
-        self.sCntrl.activeGroup?.getGroupVolume({ (volume) in
+        guard let activeGroup = self.sCntrl.activeGroup else {return}
+            
+        activeGroup.getGroupVolume({ (volume) in
             self.volumeSlider.integerValue = volume
         })
         
         //Update track info
-        self.sCntrl.activeGroup?.updateCurrentTrack({ (trackInfo) in
+        activeGroup.updateCurrentTrack({ (trackInfo) in
+            
+            //Update system state and TouchBar
+            if let playState = activeGroup.currentPlayState {
+                SystemAudioRemoteHandler.shared.updateSystemPlayingInfo(trackInfo: trackInfo, playState: playState, group: activeGroup)
+            }
+            
             self.updateTrackLabel(withTrack: trackInfo.trackText())
             //Update buttons
             self.sCntrl.activeGroup?.getPlayState({ (state) in
@@ -169,6 +177,8 @@ class ControlVC: NSViewController {
         if let coordinator = sCntrl.sonosSystems.first(where: {$0.active && $0.isGroupCoordinator}) {
             //Update track
             coordinator.updateCurrentTrack({ (trackInfo) in
+                
+                
                 self.updateTrackLabel(withTrack: trackInfo.trackText())
                 //Update buttons
                 coordinator.getPlayState({ (state) in
@@ -252,11 +262,7 @@ class ControlVC: NSViewController {
     
     @IBAction func switchSpeakerGroups(_ sender: Any) {
         let selected = self.speakerGroupSelector.indexOfSelectedItem
-        if (selected == 0) {
-            //Show speakers
-            self.showState = .speakers
-            self.updateSonosDeviceList()
-        }else {
+        if selected == 0 {
             //Show groups
             self.showState = .groups
             self.updateGroupsList()
@@ -384,6 +390,7 @@ class ControlVC: NSViewController {
     }
 }
 
+//MARK: -  SonosControllerDelegate
 extension ControlVC: SonosControllerDelegate {
     func didUpdateSpeakers() {
         if let lastSelected = UserDefaults.standard.activeSpeakerUDNs {

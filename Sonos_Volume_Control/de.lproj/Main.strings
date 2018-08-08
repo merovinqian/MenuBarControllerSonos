@@ -87,10 +87,10 @@
 "B1G-5z-Li2.ibExternalAccessibilityDescription" = "Wähle \"Speakers\" um die Lautsprecher individuell zu steuern. Wähle \"Gruppen\" um Sonos Gruppen zu steuern";
 
 /* Class = "NSSegmentedCell"; B1G-5z-Li2.ibShadowedLabels[0] = "Speakers"; ObjectID = "B1G-5z-Li2"; */
-"B1G-5z-Li2.ibShadowedLabels[0]" = "Speaker";
+"B1G-5z-Li2.ibShadowedLabels[0]" = "Gruppen";
 
 /* Class = "NSSegmentedCell"; B1G-5z-Li2.ibShadowedLabels[1] = "Groups"; ObjectID = "B1G-5z-Li2"; */
-"B1G-5z-Li2.ibShadowedLabels[1]" = "Gruppen";
+"B1G-5z-Li2.ibShadowedLabels[1]" = "Lautstärke";
 
 /* Class = "NSSegmentedCell"; B1G-5z-Li2.ibShadowedToolTips[1] = "Select this to control your Sonos groups"; ObjectID = "B1G-5z-Li2"; */
 "B1G-5z-Li2.ibShadowedToolTips[1]" = "Wähle diese Auswahl, um Gruppen zu steuern";

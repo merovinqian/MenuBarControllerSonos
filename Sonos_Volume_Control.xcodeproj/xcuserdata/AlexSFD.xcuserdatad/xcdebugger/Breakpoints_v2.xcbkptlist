@@ -186,7 +186,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Sonos_Volume_Control/AppDelegate.swift"
-            timestampString = "544538768.556931"
+            timestampString = "554243873.5901819"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "34"
@@ -281,11 +281,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Sonos_Volume_Control/ControlVC.swift"
-            timestampString = "545862854.05195"
+            timestampString = "555450216.750481"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "160"
-            endingLineNumber = "160"
+            startingLineNumber = "168"
+            endingLineNumber = "168"
             landmarkName = "updateStateForSpeakerMode()"
             landmarkType = "7">
             <Locations>
@@ -377,7 +377,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Sonos_Volume_Control/ControlVC.swift"
-            timestampString = "545862854.0523649"
+            timestampString = "555450216.750896"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "144"
@@ -489,7 +489,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Sonos_Volume_Control/AppDelegate.swift"
-            timestampString = "544538768.558763"
+            timestampString = "554243873.590396"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "24"
@@ -537,7 +537,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Sonos_Volume_Control/ControlVC.swift"
-            timestampString = "545862854.052701"
+            timestampString = "555450216.751195"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "96"
@@ -617,7 +617,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Sonos_Volume_Control/ControlVC.swift"
-            timestampString = "545862854.053003"
+            timestampString = "555450216.751478"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "83"
@@ -649,7 +649,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SonoSwift/SonoSwift/SonosDevice.swift"
-            timestampString = "546361263.405179"
+            timestampString = "555450216.7517281"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "155"
@@ -665,7 +665,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SonoSwift/SonoSwift/SonosController.swift"
-            timestampString = "546361263.4055229"
+            timestampString = "554243873.590596"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "203"
@@ -681,11 +681,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Sonos_Volume_Control/ControlVC.swift"
-            timestampString = "545862854.053368"
+            timestampString = "555450216.751804"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "459"
-            endingLineNumber = "459"
+            startingLineNumber = "466"
+            endingLineNumber = "466"
             landmarkName = "didUpdateActiveState(forSonos:isActive:)"
             landmarkType = "7">
             <Locations>
@@ -776,11 +776,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Sonos_Volume_Control/ControlVC.swift"
-            timestampString = "545862854.054027"
+            timestampString = "555450216.752063"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "391"
-            endingLineNumber = "391"
+            startingLineNumber = "398"
+            endingLineNumber = "398"
             landmarkName = "didUpdateSpeakers()"
             landmarkType = "7">
             <Locations>
@@ -824,7 +824,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SonoSwift/SonoSwift/SonosController.swift"
-            timestampString = "546361263.405847"
+            timestampString = "554243873.591001"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "214"
@@ -840,7 +840,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SonoSwift/SonoSwift/SonosController.swift"
-            timestampString = "546361263.4060839"
+            timestampString = "554243873.591194"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "163"
@@ -856,7 +856,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SonoSwift/SonoSwift/SonosDevice.swift"
-            timestampString = "546361263.406314"
+            timestampString = "555450216.7523071"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "74"
@@ -872,7 +872,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SonoSwift/SonoSwift/SonosDevice.swift"
-            timestampString = "546361263.406532"
+            timestampString = "555450216.752352"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "71"
@@ -889,7 +889,7 @@
             condition = "pairedSpeakers &gt; 0"
             continueAfterRunningActions = "No"
             filePath = "SonoSwift/SonoSwift/SonosDevice.swift"
-            timestampString = "546361263.406736"
+            timestampString = "555450216.7523921"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "83"
@@ -905,12 +905,156 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SonoSwift/SonoSwift/SonosController.swift"
-            timestampString = "546361263.406938"
+            timestampString = "554243873.591416"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "287"
             endingLineNumber = "287"
             landmarkName = "discoveredDevice(sonos:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SonoSwift/SonoSwift/SonosController.swift"
+            timestampString = "554243873.591607"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "265"
+            endingLineNumber = "265"
+            landmarkName = "discoveredDevice(sonos:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SonoSwift/SonoSwift/SonosController.swift"
+            timestampString = "554243873.5917929"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "240"
+            endingLineNumber = "240"
+            landmarkName = "retrieveDeviceInfo(response:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SonoSwift/SonoSwift/SonosController.swift"
+            timestampString = "554243873.59198"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "210"
+            endingLineNumber = "210"
+            landmarkName = "searchForDevices()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SonoSwift/SonoSwift/SonosController.swift"
+            timestampString = "554243873.592163"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "234"
+            endingLineNumber = "234"
+            landmarkName = "discoveredDevice(response:session:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Sonos_Volume_Control/SystemAudioRemoteHandler.swift"
+            timestampString = "555450216.752484"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "40"
+            endingLineNumber = "40"
+            landmarkName = "updateSystemPlayingInfo(trackInfo:playState:group:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SonoSwift/SonoSwift/SonosTrackInfo.swift"
+            timestampString = "555450216.75274"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "23"
+            endingLineNumber = "23"
+            landmarkName = "init(xml:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Sonos_Volume_Control/SystemAudioRemoteHandler.swift"
+            timestampString = "555450216.752785"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "67"
+            endingLineNumber = "67"
+            landmarkName = "updateSystemPlayingInfo(trackInfo:playState:group:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Sonos_Volume_Control/SystemAudioRemoteHandler.swift"
+            timestampString = "555450216.752979"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "43"
+            endingLineNumber = "43"
+            landmarkName = "updateSystemPlayingInfo(trackInfo:playState:group:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Sonos_Volume_Control/SystemAudioRemoteHandler.swift"
+            timestampString = "555450216.753165"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "46"
+            endingLineNumber = "46"
+            landmarkName = "updateSystemPlayingInfo(trackInfo:playState:group:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -151,6 +151,10 @@ public class SonosSpeakerGroup: Hashable {
         mainSpeaker?.getPlayState(completion)
     }
     
+    public var currentPlayState: PlayState? {
+        return self.mainSpeaker?.playState
+    }
+    
     /**
      Update the current track and return it in the completion handler
      
@@ -159,6 +163,10 @@ public class SonosSpeakerGroup: Hashable {
      */
     public func updateCurrentTrack(_ completion: ((_ trackInfo: SonosTrackInfo)->Void)?=nil) {
         self.mainSpeaker?.updateCurrentTrack(completion)
+    }
+    
+    public func getMediaInfo(_ completion: ((_ mediaInfo: SonosMediaInfo?)->Void)?=nil) {
+        self.mainSpeaker?.getMediaInfo(completion)
     }
     
     

@@ -49,6 +49,10 @@ import SWXMLHash
         return "\(title) - \(artist) - \(album) - \(streamContent ?? "No stream content")"
     }
     
+    public var isEmpty: Bool {
+        return streamContent?.isEmpty == true && self.description.isEmpty
+    }
+    
     internal var debugDescription: String {
         return """
         

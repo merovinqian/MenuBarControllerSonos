@@ -33,6 +33,6 @@
 	<key>NSMainStoryboardFile</key>
 	<string>Main</string>
 	<key>NSPrincipalClass</key>
-	<string>NSApplication</string>
+	<string>MyApplication</string>
 </dict>
 </plist>

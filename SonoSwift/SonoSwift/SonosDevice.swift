@@ -379,6 +379,26 @@ public class SonosDevice: Equatable, Hashable {
         
     }
     
+    
+    /// Get Media Info. This is only useful for radio / podcasts / stations. Does not give any info about tracks
+    ///
+    /// - Parameter completion: completion handler
+    func getMediaInfo(_ completion: ((_ mediaInfo: SonosMediaInfo?)->Void)?=nil) {
+        let command = SonosCommand(endpoint: .transport_endpoint, action: .get_media_info, service: .transport_service)
+        command.put(key:"InstanceID",value: "0")
+        
+        command.execute(sonos: self) { (data) in
+            guard let xml = self.parseXml(data: data)
+                else {completion?(nil); return}
+            
+            let mediaInfo = SonosMediaInfo(xml: xml)
+
+            DispatchQueue.main.async {
+                completion?(mediaInfo)
+            }
+        }
+    }
+    
 //    func getQueue(start: Int, count: Int) {
 //        let command = SonosCommand(endpoint: .content_directory_endpoint, action: .browse, service: .content_directory_service)
 //        command.put(key:"ObjectID",value: "Q:0")

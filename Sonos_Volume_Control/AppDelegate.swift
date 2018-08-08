@@ -38,6 +38,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         eventMonitor?.start()
         
         checkIfLaunchedAutomatically()
+        
+        
     }
     
     func checkIfLaunchedAutomatically() {

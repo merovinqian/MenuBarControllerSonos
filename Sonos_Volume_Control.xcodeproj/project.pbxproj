@@ -22,7 +22,7 @@
 		1116E9D32040C015009D940F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1116E9D22040C015009D940F /* AppDelegate.swift */; };
 		1116E9D72040C015009D940F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1116E9D62040C015009D940F /* Assets.xcassets */; };
 		1116E9DA2040C015009D940F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1116E9D82040C015009D940F /* Main.storyboard */; };
-		1116E9E32040CDA9009D940F /* SampleAudio_0.4mb.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1116E9E22040CDA8009D940F /* SampleAudio_0.4mb.mp3 */; };
+		1116E9E32040CDA9009D940F /* SampleAudio.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1116E9E22040CDA8009D940F /* SampleAudio.mp3 */; };
 		112617C22089242E008005E6 /* ControlVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C13475204F4DE600AC3581 /* ControlVC.swift */; };
 		112617C32089242E008005E6 /* CustomScrolllView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CF320420629C6B00A79D9A /* CustomScrolllView.swift */; };
 		112617C42089242E008005E6 /* CustomScrollClipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F796CC206903B000E4FBE9 /* CustomScrollClipView.swift */; };
@@ -34,7 +34,7 @@
 		112617CA2089242E008005E6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1116E9D22040C015009D940F /* AppDelegate.swift */; };
 		112617CD2089242E008005E6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1116E9D62040C015009D940F /* Assets.xcassets */; };
 		112617CE2089242E008005E6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1116E9D82040C015009D940F /* Main.storyboard */; };
-		112617CF2089242E008005E6 /* SampleAudio_0.4mb.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1116E9E22040CDA8009D940F /* SampleAudio_0.4mb.mp3 */; };
+		112617CF2089242E008005E6 /* SampleAudio.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1116E9E22040CDA8009D940F /* SampleAudio.mp3 */; };
 		112617D920892ABF008005E6 /* SWXMLHash.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11F64C122050B1A0005ED2E3 /* SWXMLHash.framework */; };
 		112617DA20892ABF008005E6 /* SWXMLHash.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 11F64C122050B1A0005ED2E3 /* SWXMLHash.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		112617DB20892ABF008005E6 /* CocoaAsyncSocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11F64C0D2050A2AE005ED2E3 /* CocoaAsyncSocket.framework */; };
@@ -45,6 +45,9 @@
 		112617E620892AEA008005E6 /* ServiceManagement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1151CDE22072A624001150F7 /* ServiceManagement.framework */; };
 		112617E820892AFD008005E6 /* SonoSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 11DC863E207E90C100809C2E /* SonoSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		112617EF20892B46008005E6 /* Launcher.app in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1151CDDE2072A57E001150F7 /* Launcher.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		11326EB12108F7A2001C7486 /* SystemAudioRemoteHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11326EB02108F7A2001C7486 /* SystemAudioRemoteHandler.swift */; };
+		11326EB32108F91E001C7486 /* MyApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11326EB22108F91E001C7486 /* MyApplication.swift */; };
+		11326EB5210903DB001C7486 /* sample-audio.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 11326EB4210903DB001C7486 /* sample-audio.mp3 */; };
 		1141705B2080873B0030EBF2 /* AppUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1141705A2080873B0030EBF2 /* AppUtil.swift */; };
 		1141705C2080873B0030EBF2 /* AppUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1141705A2080873B0030EBF2 /* AppUtil.swift */; };
 		11453555206BBEF5008C8FC6 /* ControlVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C13475204F4DE600AC3581 /* ControlVC.swift */; };
@@ -55,7 +58,7 @@
 		11453567206BBEF5008C8FC6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1116E9D22040C015009D940F /* AppDelegate.swift */; };
 		1145356E206BBEF5008C8FC6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1116E9D62040C015009D940F /* Assets.xcassets */; };
 		1145356F206BBEF5008C8FC6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1116E9D82040C015009D940F /* Main.storyboard */; };
-		11453570206BBEF5008C8FC6 /* SampleAudio_0.4mb.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1116E9E22040CDA8009D940F /* SampleAudio_0.4mb.mp3 */; };
+		11453570206BBEF5008C8FC6 /* SampleAudio.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1116E9E22040CDA8009D940F /* SampleAudio.mp3 */; };
 		11489604206AEE1E003A02C0 /* PlayPauseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11489603206AEE1E003A02C0 /* PlayPauseButton.swift */; };
 		1151CDE12072A5C5001150F7 /* Launcher.app in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1151CDDE2072A57E001150F7 /* Launcher.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		1151CDE32072A624001150F7 /* ServiceManagement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1151CDE22072A624001150F7 /* ServiceManagement.framework */; };
@@ -205,12 +208,15 @@
 		1116E9D92040C015009D940F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1116E9DB2040C015009D940F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1116E9DC2040C015009D940F /* Sonos_Volume_Control.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Sonos_Volume_Control.entitlements; sourceTree = "<group>"; };
-		1116E9E22040CDA8009D940F /* SampleAudio_0.4mb.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = SampleAudio_0.4mb.mp3; sourceTree = "<group>"; };
+		1116E9E22040CDA8009D940F /* SampleAudio.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = SampleAudio.mp3; sourceTree = "<group>"; };
 		112617D42089242E008005E6 /* DebugTarget.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DebugTarget.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		112617D62089242E008005E6 /* DemoTestTarget copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "DemoTestTarget copy-Info.plist"; path = "/Users/AlexSFD/Sn0wfreeze-Dev/Frameworks/github/Sonos_Volume_Control/DemoTestTarget copy-Info.plist"; sourceTree = "<absolute>"; };
+		112617D62089242E008005E6 /* DemoTestTarget copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "DemoTestTarget copy-Info.plist"; path = "/Users/AlexSFD/Sn0wfreeze-Dev/Projekte/Sonos/Sonos_Volume_Control/DemoTestTarget copy-Info.plist"; sourceTree = "<absolute>"; };
+		11326EB02108F7A2001C7486 /* SystemAudioRemoteHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemAudioRemoteHandler.swift; sourceTree = "<group>"; };
+		11326EB22108F91E001C7486 /* MyApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyApplication.swift; sourceTree = "<group>"; };
+		11326EB4210903DB001C7486 /* sample-audio.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "sample-audio.mp3"; sourceTree = "<group>"; };
 		1141705A2080873B0030EBF2 /* AppUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUtil.swift; sourceTree = "<group>"; };
 		11453578206BBEF5008C8FC6 /* DemoTestTarget.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DemoTestTarget.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		11453579206BBEF5008C8FC6 /* Menu Bar Controller for Sonos copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Menu Bar Controller for Sonos copy-Info.plist"; path = "/Users/AlexSFD/Sn0wfreeze-Dev/Frameworks/github/Sonos_Volume_Control/Menu Bar Controller for Sonos copy-Info.plist"; sourceTree = "<absolute>"; };
+		11453579206BBEF5008C8FC6 /* Menu Bar Controller for Sonos copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Menu Bar Controller for Sonos copy-Info.plist"; path = "/Users/AlexSFD/Sn0wfreeze-Dev/Projekte/Sonos/Sonos_Volume_Control/Menu Bar Controller for Sonos copy-Info.plist"; sourceTree = "<absolute>"; };
 		11489603206AEE1E003A02C0 /* PlayPauseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayPauseButton.swift; sourceTree = "<group>"; };
 		1151CDD92072A57D001150F7 /* Launcher.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Launcher.xcodeproj; path = Launcher/Launcher.xcodeproj; sourceTree = "<group>"; };
 		1151CDE22072A624001150F7 /* ServiceManagement.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ServiceManagement.framework; path = System/Library/Frameworks/ServiceManagement.framework; sourceTree = SDKROOT; };
@@ -296,6 +302,7 @@
 			isa = PBXGroup;
 			children = (
 				1116E9D22040C015009D940F /* AppDelegate.swift */,
+				11326EB22108F91E001C7486 /* MyApplication.swift */,
 				11C13475204F4DE600AC3581 /* ControlVC.swift */,
 				1151CDE42072A6DF001150F7 /* MenuHandler.swift */,
 				11C67D7A2051F01C002777D4 /* EventMonitor.swift */,
@@ -304,13 +311,15 @@
 				11F796CC206903B000E4FBE9 /* CustomScrollClipView.swift */,
 				11489603206AEE1E003A02C0 /* PlayPauseButton.swift */,
 				1141705A2080873B0030EBF2 /* AppUtil.swift */,
+				11326EB02108F7A2001C7486 /* SystemAudioRemoteHandler.swift */,
 				1116E9D62040C015009D940F /* Assets.xcassets */,
 				1116E9D82040C015009D940F /* Main.storyboard */,
 				1116E9DB2040C015009D940F /* Info.plist */,
-				1116E9E22040CDA8009D940F /* SampleAudio_0.4mb.mp3 */,
+				1116E9E22040CDA8009D940F /* SampleAudio.mp3 */,
 				1116E9DC2040C015009D940F /* Sonos_Volume_Control.entitlements */,
 				11C13477204F5C7A00AC3581 /* Sonos_Volume_Control-Bridging-Header.h */,
 				1115C40D20751C57009494A5 /* Localizable.strings */,
+				11326EB4210903DB001C7486 /* sample-audio.mp3 */,
 			);
 			path = Sonos_Volume_Control;
 			sourceTree = "<group>";
@@ -491,7 +500,8 @@
 				1116E9D72040C015009D940F /* Assets.xcassets in Resources */,
 				1115C40F20751C57009494A5 /* Localizable.strings in Resources */,
 				1116E9DA2040C015009D940F /* Main.storyboard in Resources */,
-				1116E9E32040CDA9009D940F /* SampleAudio_0.4mb.mp3 in Resources */,
+				11326EB5210903DB001C7486 /* sample-audio.mp3 in Resources */,
+				1116E9E32040CDA9009D940F /* SampleAudio.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -502,7 +512,7 @@
 				112617CD2089242E008005E6 /* Assets.xcassets in Resources */,
 				1111254C2090CC3600F4E822 /* Localizable.strings in Resources */,
 				112617CE2089242E008005E6 /* Main.storyboard in Resources */,
-				112617CF2089242E008005E6 /* SampleAudio_0.4mb.mp3 in Resources */,
+				112617CF2089242E008005E6 /* SampleAudio.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -513,7 +523,7 @@
 				1145356E206BBEF5008C8FC6 /* Assets.xcassets in Resources */,
 				1111254B2090CC3600F4E822 /* Localizable.strings in Resources */,
 				1145356F206BBEF5008C8FC6 /* Main.storyboard in Resources */,
-				11453570206BBEF5008C8FC6 /* SampleAudio_0.4mb.mp3 in Resources */,
+				11453570206BBEF5008C8FC6 /* SampleAudio.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -547,8 +557,10 @@
 				11489604206AEE1E003A02C0 /* PlayPauseButton.swift in Sources */,
 				1151CDE52072A6DF001150F7 /* MenuHandler.swift in Sources */,
 				1141705B2080873B0030EBF2 /* AppUtil.swift in Sources */,
+				11326EB12108F7A2001C7486 /* SystemAudioRemoteHandler.swift in Sources */,
 				11C67D7B2051F01C002777D4 /* EventMonitor.swift in Sources */,
 				1116E9D32040C015009D940F /* AppDelegate.swift in Sources */,
+				11326EB32108F91E001C7486 /* MyApplication.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

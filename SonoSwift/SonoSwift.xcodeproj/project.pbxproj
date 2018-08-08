@@ -28,6 +28,7 @@
 		11DC8682207E9D0400809C2E /* SSDPUPnP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11DC867A207E9D0400809C2E /* SSDPUPnP.swift */; };
 		11DC8683207E9D0400809C2E /* SSDPResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11DC867B207E9D0400809C2E /* SSDPResponse.swift */; };
 		11DC8685207E9D5800809C2E /* TestExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11DC8684207E9D5800809C2E /* TestExtensions.swift */; };
+		11E76A90211B7946006976B9 /* SonosMediaInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E76A8F211B7946006976B9 /* SonosMediaInfo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +60,7 @@
 		11DC867A207E9D0400809C2E /* SSDPUPnP.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSDPUPnP.swift; sourceTree = "<group>"; };
 		11DC867B207E9D0400809C2E /* SSDPResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSDPResponse.swift; sourceTree = "<group>"; };
 		11DC8684207E9D5800809C2E /* TestExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestExtensions.swift; sourceTree = "<group>"; };
+		11E76A8F211B7946006976B9 /* SonosMediaInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SonosMediaInfo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +109,7 @@
 				11DC8630207E90BF00809C2E /* SonoSwift.h */,
 				11DC8631207E90BF00809C2E /* Info.plist */,
 				111125492090CC0200F4E822 /* Localizable.strings */,
+				11E76A8F211B7946006976B9 /* SonosMediaInfo.swift */,
 			);
 			path = SonoSwift;
 			sourceTree = "<group>";
@@ -222,6 +225,7 @@
 				11DC864F207E90EF00809C2E /* SonosStereoPair.swift in Sources */,
 				11DC867E207E9D0400809C2E /* SSDPCommon.swift in Sources */,
 				11DC8680207E9D0400809C2E /* SSDPDiscoverySession.swift in Sources */,
+				11E76A90211B7946006976B9 /* SonosMediaInfo.swift in Sources */,
 				11DC864D207E90EF00809C2E /* SonosController.swift in Sources */,
 				11DC864C207E90EF00809C2E /* SonosDevice.swift in Sources */,
 				11DC8685207E9D5800809C2E /* TestExtensions.swift in Sources */,
