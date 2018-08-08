@@ -9,6 +9,7 @@
 import Cocoa
 import AVFoundation
 import AudioUnit
+import AppKit
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
@@ -30,10 +31,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 //        popover.behavior = .transient
         popover.animates = true
         
+        
         eventMonitor = EventMonitor(mask: [.leftMouseDown, .rightMouseDown]) { [weak self] event in
-            if let strongSelf = self, strongSelf.popover.isShown {
+            if (event?.type == .leftMouseDown || event?.type == .rightMouseDown),
+                let strongSelf = self, strongSelf.popover.isShown {
                 strongSelf.closePopover(sender: event)
             }
+            
         }
         eventMonitor?.start()
         

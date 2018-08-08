@@ -17,6 +17,7 @@ class SystemAudioRemoteHandler: NSObject {
     
     var currentTrackInfo: SonosTrackInfo?
     var currentGroup: SonosSpeakerGroup?
+    var audioPlayer: AVAudioPlayer?
     
     private override init() {
         super.init()
@@ -75,6 +76,52 @@ class SystemAudioRemoteHandler: NSObject {
         }
     }
     
+    public func handlePlayPause() {
+        guard let playState = currentGroup?.currentPlayState else {return}
+        
+        switch playState {
+        case .playing:
+            currentGroup?.pause()
+        case .paused:
+            currentGroup?.play()
+        case .stopped:
+            currentGroup?.play()
+        default:
+            currentGroup?.play()
+        }
+        
+        if let trackInfo = currentTrackInfo,
+            let group = currentGroup,
+            let ps = group.currentPlayState {
+            self.updateSystemPlayingInfo(trackInfo: trackInfo, playState: ps, group: group)
+        }
+        
+    }
+    
+    public func handleNext() {
+        currentGroup?.next()
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+            self.updateTitleAndMediaInfo()
+        }
+    }
+    
+    public func handlePrevious() {
+        currentGroup?.previous()
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+            self.updateTitleAndMediaInfo()
+        }
+    }
+    
+    private func updateTitleAndMediaInfo() {
+        guard let group = self.currentGroup,
+            let ps = group.currentPlayState else {return}
+        
+        group.updateCurrentTrack { (trackInfo) in
+            self.updateSystemPlayingInfo(trackInfo: trackInfo, playState: ps, group: group)
+        }
+    }
     
     @available(OSX 10.12.2, *)
     /// Get the MPNowPlayingPlaybackState for a Sonos PlayState
