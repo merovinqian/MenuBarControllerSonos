@@ -23,7 +23,20 @@ class ControlVC: NSViewController {
     @IBOutlet weak var sonosScrollContainer: CustomScrolllView!
     @IBOutlet weak var speakerGroupSelector: NSSegmentedControl!
     @IBOutlet weak var currentTrackLabel: NSTextField!
+    
+    @IBOutlet weak var volumeButton: NSButton!
+    @IBOutlet weak var spacerView: NSImageView!
+    //Constraints
+    
+    
+    /// Height of the Scroll view showing the Speakers
+    @IBOutlet weak var scrollViewHeight: NSLayoutConstraint!
+    
+    /// Leading space tracklabel <-> view
     @IBOutlet weak var trackLabelLeading: NSLayoutConstraint!
+    
+    /// Constraint which is holding the Group List / Volume list small
+    @IBOutlet weak var smallListsSpacer: NSLayoutConstraint!
     
     let defaultHeight: CGFloat = 143.0
     let defaultWidth:CGFloat = 228.0
@@ -32,6 +45,7 @@ class ControlVC: NSViewController {
     let sCntrl = SonosController.shared
 
     var speakerButtons: [SonosDevice: NSButton] = [:]
+    var volumeViews: [SonosDevice: VolumeSpeakerView] = [:]
     var groupButtons: [SonosSpeakerGroup: NSButton] = [:]
     
     var showState = ShowState.groups
@@ -93,6 +107,23 @@ class ControlVC: NSViewController {
         self.setupScrollView()
     }
     
+    func updateSonosVolumeList() {
+        guard self.showState == .volume else {return}
+        
+        for view in self.sonosStack.subviews {
+            self.sonosStack.removeView(view)
+        }
+        
+        for sonos in sCntrl.sonosSystems {
+            let sonosView = VolumeSpeakerView.withSpeaker(speaker: sonos)
+            self.sonosStack.addArrangedSubview(sonosView)
+            self.volumeViews[sonos] = sonosView
+            sonos.delegate = self
+        }
+        
+        self.setupScrollView()
+    }
+    
     func updateGroupsList() {
         guard self.showState == .groups else {return}
         
@@ -129,7 +160,7 @@ class ControlVC: NSViewController {
     
     func setupScrollView() {
        self.sonosScrollContainer.scrollToTop()
-       self.sonosScrollContainer.isScrollingEnabled = self.sCntrl.sonosSystems.count > 4
+        self.sonosScrollContainer.isScrollingEnabled = self.sCntrl.sonosSystems.count > 4 || self.showState == .volume
     }
     
     func updateState() {
@@ -138,6 +169,8 @@ class ControlVC: NSViewController {
             self.updateStateForGroupMode()
         case .speakers:
             self.updateStateForSpeakerMode()
+        case .volume:
+            self.updateStateForVolumeMode()
         }
     }
     
@@ -146,6 +179,7 @@ class ControlVC: NSViewController {
             
         activeGroup.getGroupVolume({ (volume) in
             self.volumeSlider.integerValue = volume
+            self.updateVolumeButton()
         })
         
         //Update track info
@@ -188,6 +222,12 @@ class ControlVC: NSViewController {
         }else {
             //Hide buttons
             self.controlsView.isHidden = true
+        }
+    }
+    
+    func updateStateForVolumeMode() {
+        for sonos in sCntrl.sonosSystems {
+            self.volumeViews[sonos]?.update()
         }
     }
     
@@ -264,10 +304,54 @@ class ControlVC: NSViewController {
         let selected = self.speakerGroupSelector.indexOfSelectedItem
         if selected == 0 {
             //Show groups
+            self.animateViewChanges(oldState: self.showState, newState: .groups)
             self.showState = .groups
             self.updateGroupsList()
+        }else if selected == 1 {
+            self.animateViewChanges(oldState: self.showState, newState: .volume)
+            self.showState = .volume
+            self.updateSonosVolumeList()
         }
         self.updateState()
+    }
+    
+    
+    /// Animate changes when selecting a different option from the selecto
+    ///
+    /// - Parameters:
+    ///   - oldState: old ShowState value
+    ///   - newState: new ShoState value
+    func animateViewChanges(oldState: ShowState, newState: ShowState) {
+        if newState == .volume && oldState != .volume {
+            // Make list bigger
+            NSAnimationContext.runAnimationGroup({ (context) in
+                context.duration = 0.3
+                self.smallListsSpacer.animator().isActive = false
+                self.scrollViewHeight.animator().constant = 145.0
+                self.volumeButton.animator().alphaValue = 0.0
+                self.volumeSlider.animator().alphaValue = 0.0
+                self.controlsView.animator().alphaValue = 0.0
+                self.currentTrackLabel.animator().alphaValue = 0.0
+                self.spacerView.animator().alphaValue = 0.0
+            }) {
+                //Completion
+            }
+        }else {
+            // Make list smaller
+            NSAnimationContext.runAnimationGroup({ (context) in
+                context.duration = 0.3
+                self.smallListsSpacer = self.sonosScrollContainer.bottomAnchor.constraint(equalTo: self.currentTrackLabel.topAnchor, constant: 8.0)
+                self.smallListsSpacer.isActive = true
+                self.scrollViewHeight.animator().constant = 88
+                self.volumeButton.animator().alphaValue = 1.0
+                self.volumeSlider.animator().alphaValue = 1.0
+                self.controlsView.animator().alphaValue = 1.0
+                self.currentTrackLabel.animator().alphaValue = 1.0
+                self.spacerView.animator().alphaValue = 1.0
+            }) {
+                //Completion
+            }
+        }
     }
     
     @IBAction func setVolume(_ sender: NSSlider) {
@@ -279,8 +363,37 @@ class ControlVC: NSViewController {
             }
         case .groups:
             self.sCntrl.activeGroup?.setVolume(volume: sender.integerValue)
+            
+        default:
+            break
         }
         
+        
+    }
+    
+    @IBAction func mute(_ sender: Any) {
+        guard let activeGroup = self.sCntrl.activeGroup else {return}
+        
+        if activeGroup.isMuted {
+            activeGroup.setMute(muted: false)
+            self.volumeButton.image = #imageLiteral(resourceName: "ic_volume_up")
+        }else {
+            activeGroup.setMute(muted: true)
+            self.volumeButton.image = #imageLiteral(resourceName: "ic_volume_off")
+        }
+        
+    }
+    
+    
+    /// Checks if the group is muted and updates the buttons image
+    private func updateVolumeButton() {
+        guard let activeGroup = self.sCntrl.activeGroup else {return}
+        
+        if activeGroup.isMuted {
+            self.volumeButton.image = #imageLiteral(resourceName: "ic_volume_off")
+        }else {
+            self.volumeButton.image = #imageLiteral(resourceName: "ic_volume_up")
+        }
     }
     
     @IBAction func playPause(_ sender: Any) {
@@ -302,6 +415,9 @@ class ControlVC: NSViewController {
                 self.sCntrl.activeGroup?.pause()
                 self.updatePlayButton(forState: .paused, isPlayingRadio: self.sCntrl.activeGroup?.trackInfo?.isPlayingRadio ?? false)
             }
+            
+        default:
+            break
         }
         
     }
@@ -334,6 +450,9 @@ class ControlVC: NSViewController {
             }
         case .groups:
             self.sCntrl.activeGroup?.next()
+        
+        default:
+            break
         }
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
@@ -351,6 +470,9 @@ class ControlVC: NSViewController {
             }
         case .groups:
             self.sCntrl.activeGroup?.previous()
+        
+        default:
+            break
         }
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
@@ -387,6 +509,7 @@ class ControlVC: NSViewController {
     enum ShowState {
         case groups
         case speakers
+        case volume
     }
 }
 
@@ -416,6 +539,9 @@ extension ControlVC: SonosControllerDelegate {
             self.updateSonosDeviceList()
         case .groups:
             self.updateGroupsList()
+        case .volume:
+            break
+            
         }
         
         if self.sCntrl.sonosSystems.count > 0 {
@@ -429,9 +555,11 @@ extension ControlVC: SonosControllerDelegate {
             self.updateSonosDeviceList()
         case .groups:
             self.updateGroupsList()
+        case .volume:
+            self.updateSonosVolumeList()
         }
         
-        if self.sCntrl.sonosSystems.count > 0 {
+        if self.sCntrl.sonosSystems.count > 0 || self.sCntrl.sonosGroups.count > 0 {
             self.updateState()
             self.errorMessageLabel.isHidden = true
             self.controlsView.isHidden = false

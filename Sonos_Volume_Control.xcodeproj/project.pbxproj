@@ -66,6 +66,12 @@
 		1151CDE62072A6DF001150F7 /* MenuHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1151CDE42072A6DF001150F7 /* MenuHandler.swift */; };
 		1151CDE82072AA49001150F7 /* UserDefaultsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1151CDE72072AA49001150F7 /* UserDefaultsExtension.swift */; };
 		1151CDE92072AA49001150F7 /* UserDefaultsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1151CDE72072AA49001150F7 /* UserDefaultsExtension.swift */; };
+		116CD09E2120B1E200D08464 /* VolumeSpeakerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116CD09D2120B1E200D08464 /* VolumeSpeakerView.swift */; };
+		116CD09F2120B1E200D08464 /* VolumeSpeakerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116CD09D2120B1E200D08464 /* VolumeSpeakerView.swift */; };
+		116CD0A02120B1E200D08464 /* VolumeSpeakerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116CD09D2120B1E200D08464 /* VolumeSpeakerView.swift */; };
+		116CD0A22120C30400D08464 /* VolumeSpeakerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 116CD0A12120C30400D08464 /* VolumeSpeakerView.xib */; };
+		116CD0A32120C30400D08464 /* VolumeSpeakerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 116CD0A12120C30400D08464 /* VolumeSpeakerView.xib */; };
+		116CD0A42120C30400D08464 /* VolumeSpeakerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 116CD0A12120C30400D08464 /* VolumeSpeakerView.xib */; };
 		11C13476204F4DE600AC3581 /* ControlVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C13475204F4DE600AC3581 /* ControlVC.swift */; };
 		11C67D7B2051F01C002777D4 /* EventMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C67D7A2051F01C002777D4 /* EventMonitor.swift */; };
 		11CF320520629C6B00A79D9A /* CustomScrolllView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CF320420629C6B00A79D9A /* CustomScrolllView.swift */; };
@@ -222,6 +228,8 @@
 		1151CDE22072A624001150F7 /* ServiceManagement.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ServiceManagement.framework; path = System/Library/Frameworks/ServiceManagement.framework; sourceTree = SDKROOT; };
 		1151CDE42072A6DF001150F7 /* MenuHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuHandler.swift; sourceTree = "<group>"; };
 		1151CDE72072AA49001150F7 /* UserDefaultsExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsExtension.swift; sourceTree = "<group>"; };
+		116CD09D2120B1E200D08464 /* VolumeSpeakerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolumeSpeakerView.swift; sourceTree = "<group>"; };
+		116CD0A12120C30400D08464 /* VolumeSpeakerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VolumeSpeakerView.xib; sourceTree = "<group>"; };
 		11C13475204F4DE600AC3581 /* ControlVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlVC.swift; sourceTree = "<group>"; };
 		11C13477204F5C7A00AC3581 /* Sonos_Volume_Control-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Sonos_Volume_Control-Bridging-Header.h"; sourceTree = "<group>"; };
 		11C67D7A2051F01C002777D4 /* EventMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventMonitor.swift; sourceTree = "<group>"; };
@@ -304,6 +312,7 @@
 				1116E9D22040C015009D940F /* AppDelegate.swift */,
 				11326EB22108F91E001C7486 /* MyApplication.swift */,
 				11C13475204F4DE600AC3581 /* ControlVC.swift */,
+				116CD09D2120B1E200D08464 /* VolumeSpeakerView.swift */,
 				1151CDE42072A6DF001150F7 /* MenuHandler.swift */,
 				11C67D7A2051F01C002777D4 /* EventMonitor.swift */,
 				1151CDE72072AA49001150F7 /* UserDefaultsExtension.swift */,
@@ -313,6 +322,7 @@
 				1141705A2080873B0030EBF2 /* AppUtil.swift */,
 				11326EB02108F7A2001C7486 /* SystemAudioRemoteHandler.swift */,
 				1116E9D62040C015009D940F /* Assets.xcassets */,
+				116CD0A12120C30400D08464 /* VolumeSpeakerView.xib */,
 				1116E9D82040C015009D940F /* Main.storyboard */,
 				1116E9DB2040C015009D940F /* Info.plist */,
 				1116E9E22040CDA8009D940F /* SampleAudio.mp3 */,
@@ -497,6 +507,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				116CD0A22120C30400D08464 /* VolumeSpeakerView.xib in Resources */,
 				1116E9D72040C015009D940F /* Assets.xcassets in Resources */,
 				1115C40F20751C57009494A5 /* Localizable.strings in Resources */,
 				1116E9DA2040C015009D940F /* Main.storyboard in Resources */,
@@ -510,6 +521,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				112617CD2089242E008005E6 /* Assets.xcassets in Resources */,
+				116CD0A42120C30400D08464 /* VolumeSpeakerView.xib in Resources */,
 				1111254C2090CC3600F4E822 /* Localizable.strings in Resources */,
 				112617CE2089242E008005E6 /* Main.storyboard in Resources */,
 				112617CF2089242E008005E6 /* SampleAudio.mp3 in Resources */,
@@ -521,6 +533,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1145356E206BBEF5008C8FC6 /* Assets.xcassets in Resources */,
+				116CD0A32120C30400D08464 /* VolumeSpeakerView.xib in Resources */,
 				1111254B2090CC3600F4E822 /* Localizable.strings in Resources */,
 				1145356F206BBEF5008C8FC6 /* Main.storyboard in Resources */,
 				11453570206BBEF5008C8FC6 /* SampleAudio.mp3 in Resources */,
@@ -554,6 +567,7 @@
 				11CF320520629C6B00A79D9A /* CustomScrolllView.swift in Sources */,
 				11F796CD206903B000E4FBE9 /* CustomScrollClipView.swift in Sources */,
 				1151CDE82072AA49001150F7 /* UserDefaultsExtension.swift in Sources */,
+				116CD09E2120B1E200D08464 /* VolumeSpeakerView.swift in Sources */,
 				11489604206AEE1E003A02C0 /* PlayPauseButton.swift in Sources */,
 				1151CDE52072A6DF001150F7 /* MenuHandler.swift in Sources */,
 				1141705B2080873B0030EBF2 /* AppUtil.swift in Sources */,
@@ -576,6 +590,7 @@
 				112617C72089242E008005E6 /* MenuHandler.swift in Sources */,
 				112617C82089242E008005E6 /* AppUtil.swift in Sources */,
 				112617C92089242E008005E6 /* EventMonitor.swift in Sources */,
+				116CD0A02120B1E200D08464 /* VolumeSpeakerView.swift in Sources */,
 				112617CA2089242E008005E6 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -592,6 +607,7 @@
 				1151CDE62072A6DF001150F7 /* MenuHandler.swift in Sources */,
 				1141705C2080873B0030EBF2 /* AppUtil.swift in Sources */,
 				11453565206BBEF5008C8FC6 /* EventMonitor.swift in Sources */,
+				116CD09F2120B1E200D08464 /* VolumeSpeakerView.swift in Sources */,
 				11453567206BBEF5008C8FC6 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

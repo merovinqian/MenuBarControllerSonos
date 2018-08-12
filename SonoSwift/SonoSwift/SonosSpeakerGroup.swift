@@ -55,6 +55,10 @@ public class SonosSpeakerGroup: Hashable {
         return volume > 0 ? volume : 1
     }
     
+    public var isMuted: Bool {
+        return self.speakers.filter({$0.muted}).count == self.speakers.count
+    }
+    
     public func getGroupVolume(_ completion:@escaping (_ vol: Int)->Void ) {
         var count = speakers.count
         for sonos in speakers {

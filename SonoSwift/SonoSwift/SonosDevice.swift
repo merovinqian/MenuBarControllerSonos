@@ -199,6 +199,7 @@ public class SonosDevice: Equatable, Hashable {
         command.put(key: "Channel", value: "Master")
         command.put(key: "DesiredMute", value: muted ? "1" : "0")
         command.execute(sonos: self)
+        self.muted = muted
     }
     
     public func play() {

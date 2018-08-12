@@ -827,14 +827,6 @@
                                     <action selector="switchSpeakerGroups:" target="UOE-Qu-9Vt" id="2om-eE-AzZ"/>
                                 </connections>
                             </segmentedControl>
-                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JEn-om-eYu">
-                                <rect key="frame" x="8" y="2" width="20" height="20"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="20" id="trB-2C-gC0"/>
-                                    <constraint firstAttribute="width" constant="20" id="wJ5-aM-iwl"/>
-                                </constraints>
-                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="ic_volume_up" id="hvp-k1-Nr5"/>
-                            </imageView>
                             <button translatesAutoresizingMaskIntoConstraints="NO" id="LXT-xb-3K8">
                                 <rect key="frame" x="199" y="3" width="15" height="18"/>
                                 <constraints>
@@ -858,32 +850,49 @@
                                 </constraints>
                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" image="horizontal_line" id="K09-cg-QY7"/>
                             </imageView>
+                            <button translatesAutoresizingMaskIntoConstraints="NO" id="hes-lx-HaS">
+                                <rect key="frame" x="8" y="2" width="20" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="20" id="bbh-RW-u79"/>
+                                    <constraint firstAttribute="height" constant="20" id="mew-tr-yrQ"/>
+                                </constraints>
+                                <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="ic_volume_up" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="5ja-Uv-fCD">
+                                    <behavior key="behavior" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <accessibility description="Show Settings"/>
+                                <connections>
+                                    <action selector="mute:" target="UOE-Qu-9Vt" id="Cf3-iN-0sm"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <constraints>
                             <constraint firstItem="euI-Bt-dbz" firstAttribute="trailing" secondItem="LXT-xb-3K8" secondAttribute="trailing" id="0cA-PD-fCv"/>
                             <constraint firstItem="0BW-ZK-BjM" firstAttribute="top" secondItem="Nqb-gx-wcn" secondAttribute="top" constant="8" id="BvF-hw-EZe"/>
-                            <constraint firstItem="euI-Bt-dbz" firstAttribute="leading" secondItem="JEn-om-eYu" secondAttribute="leading" id="FAZ-Am-F4l"/>
                             <constraint firstItem="0BW-ZK-BjM" firstAttribute="centerX" secondItem="Nqb-gx-wcn" secondAttribute="centerX" id="H42-K7-RsS"/>
-                            <constraint firstItem="JEn-om-eYu" firstAttribute="leading" secondItem="Nqb-gx-wcn" secondAttribute="leading" constant="8" id="IyV-S9-5ug"/>
                             <constraint firstItem="03R-pu-8p0" firstAttribute="top" secondItem="540-Ck-pnu" secondAttribute="bottom" constant="8" id="JKr-im-D2p"/>
                             <constraint firstItem="LXT-xb-3K8" firstAttribute="leading" secondItem="G4u-lf-saW" secondAttribute="trailing" constant="12" id="KMP-Cy-fP4"/>
+                            <constraint firstItem="euI-Bt-dbz" firstAttribute="leading" secondItem="Nqb-gx-wcn" secondAttribute="leading" constant="8" id="Lv2-VT-pHL"/>
+                            <constraint firstItem="G4u-lf-saW" firstAttribute="leading" secondItem="hes-lx-HaS" secondAttribute="trailing" constant="4" id="N2c-3f-fJX"/>
                             <constraint firstItem="03R-pu-8p0" firstAttribute="leading" secondItem="Nqb-gx-wcn" secondAttribute="leading" constant="8" id="O4K-nD-OCN"/>
                             <constraint firstAttribute="trailing" secondItem="540-Ck-pnu" secondAttribute="trailing" constant="4" id="Ovz-AQ-IR1"/>
+                            <constraint firstItem="hes-lx-HaS" firstAttribute="leading" secondItem="Nqb-gx-wcn" secondAttribute="leading" constant="8" id="QcB-ru-IMj"/>
+                            <constraint firstItem="LXT-xb-3K8" firstAttribute="top" secondItem="540-Ck-pnu" secondAttribute="bottom" priority="750" id="Tis-oD-skA"/>
                             <constraint firstItem="03R-pu-8p0" firstAttribute="top" secondItem="Ded-pl-ylz" secondAttribute="bottom" constant="4" id="Twg-oA-Ldl"/>
                             <constraint firstAttribute="trailing" secondItem="Ded-pl-ylz" secondAttribute="trailing" constant="4" id="V4J-GZ-Jgm"/>
+                            <constraint firstItem="hes-lx-HaS" firstAttribute="centerY" secondItem="G4u-lf-saW" secondAttribute="centerY" id="aYu-5r-qII"/>
                             <constraint firstAttribute="trailing" secondItem="V79-m7-Tey" secondAttribute="trailing" constant="20" id="an4-kd-nvP"/>
+                            <constraint firstAttribute="bottom" secondItem="hes-lx-HaS" secondAttribute="bottom" constant="2" id="bbW-Hj-Ala"/>
                             <constraint firstItem="540-Ck-pnu" firstAttribute="top" secondItem="0BW-ZK-BjM" secondAttribute="bottom" constant="8" id="bnz-Ll-jZO"/>
                             <constraint firstItem="540-Ck-pnu" firstAttribute="leading" secondItem="Nqb-gx-wcn" secondAttribute="leading" constant="8" id="faH-L5-rGc"/>
                             <constraint firstItem="G4u-lf-saW" firstAttribute="top" secondItem="V79-m7-Tey" secondAttribute="bottom" constant="6" id="lww-RE-uow"/>
                             <constraint firstItem="Ded-pl-ylz" firstAttribute="leading" secondItem="Nqb-gx-wcn" secondAttribute="leading" constant="4" id="mgW-Y5-ybO"/>
                             <constraint firstAttribute="trailing" secondItem="LXT-xb-3K8" secondAttribute="trailing" constant="4" id="q31-RH-hX3"/>
-                            <constraint firstItem="G4u-lf-saW" firstAttribute="leading" secondItem="JEn-om-eYu" secondAttribute="trailing" constant="4" id="sE4-be-G40"/>
                             <constraint firstItem="euI-Bt-dbz" firstAttribute="top" secondItem="03R-pu-8p0" secondAttribute="bottom" constant="4" id="sKr-f1-u4u"/>
                             <constraint firstAttribute="trailing" secondItem="540-Ck-pnu" secondAttribute="trailing" constant="4" id="u25-ov-y83"/>
                             <constraint firstItem="euI-Bt-dbz" firstAttribute="bottom" secondItem="V79-m7-Tey" secondAttribute="bottom" id="uoH-cO-g95"/>
                             <constraint firstItem="LXT-xb-3K8" firstAttribute="centerY" secondItem="G4u-lf-saW" secondAttribute="centerY" id="vnf-XK-hzl"/>
                             <constraint firstAttribute="bottom" secondItem="G4u-lf-saW" secondAttribute="bottom" constant="4" id="wOi-DR-5Nw"/>
-                            <constraint firstItem="JEn-om-eYu" firstAttribute="centerY" secondItem="G4u-lf-saW" secondAttribute="centerY" id="xVz-lr-cfU"/>
                         </constraints>
                     </view>
                     <connections>
@@ -893,10 +902,14 @@
                         <outlet property="nextButton" destination="aUg-Gc-k5u" id="mDB-1K-hU1"/>
                         <outlet property="pauseButton" destination="KtY-82-ql5" id="8Pc-cp-dE8"/>
                         <outlet property="previousButton" destination="Kdr-P3-YGY" id="Cqs-MF-edJ"/>
+                        <outlet property="scrollViewHeight" destination="BPG-PD-VrG" id="nDk-r0-XRB"/>
+                        <outlet property="smallListsSpacer" destination="JKr-im-D2p" id="8wk-3l-JId"/>
                         <outlet property="sonosScrollContainer" destination="540-Ck-pnu" id="o1N-tF-7ob"/>
                         <outlet property="sonosStack" destination="n4a-Gx-V86" id="TgX-MU-ta8"/>
+                        <outlet property="spacerView" destination="Ded-pl-ylz" id="ZMz-gg-fTN"/>
                         <outlet property="speakerGroupSelector" destination="0BW-ZK-BjM" id="vC3-GF-6sm"/>
                         <outlet property="trackLabelLeading" destination="O4K-nD-OCN" id="MGL-lN-bqS"/>
+                        <outlet property="volumeButton" destination="hes-lx-HaS" id="KPe-Kb-YFT"/>
                         <outlet property="volumeSlider" destination="G4u-lf-saW" id="1Bf-aR-hRO"/>
                     </connections>
                 </viewController>

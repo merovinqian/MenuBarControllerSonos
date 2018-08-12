@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14113" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14113"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner"/>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="c22-O7-iKe" customClass="VolumeSpeakerView" customModule="DebugTarget" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="179" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <slider verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ZCH-ik-ck6">
+                    <rect key="frame" x="22" y="3" width="159" height="19"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="155" id="KSb-JK-mf1"/>
+                    </constraints>
+                    <sliderCell key="cell" continuous="YES" state="on" alignment="left" maxValue="100" tickMarkPosition="above" sliderType="linear" id="lqp-dx-ia5"/>
+                    <accessibility description="Volume slider"/>
+                    <connections>
+                        <action selector="changeVolumeWithSlider:" target="c22-O7-iKe" id="jFB-M0-Ywh"/>
+                    </connections>
+                </slider>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="EXG-gH-3I0">
+                    <rect key="frame" x="-2" y="27" width="37" height="17"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Label" id="6tH-F4-gZj">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <button translatesAutoresizingMaskIntoConstraints="NO" id="TlX-43-j24">
+                    <rect key="frame" x="0.0" y="2" width="20" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="Dmb-5m-iy2"/>
+                        <constraint firstAttribute="width" constant="20" id="gNT-Am-5aj"/>
+                    </constraints>
+                    <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="ic_volume_up" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="OuO-KY-ZW0">
+                        <behavior key="behavior" lightByContents="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <accessibility description="Show Settings"/>
+                    <connections>
+                        <action selector="muteSpeakerWithSender:" target="c22-O7-iKe" id="fG0-my-ykX"/>
+                    </connections>
+                </button>
+            </subviews>
+            <constraints>
+                <constraint firstItem="EXG-gH-3I0" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" id="67p-94-yda"/>
+                <constraint firstItem="ZCH-ik-ck6" firstAttribute="leading" secondItem="TlX-43-j24" secondAttribute="trailing" constant="4" id="Mm2-kl-LR6"/>
+                <constraint firstAttribute="trailing" secondItem="ZCH-ik-ck6" secondAttribute="trailing" id="TPa-xh-1mp"/>
+                <constraint firstItem="ZCH-ik-ck6" firstAttribute="centerY" secondItem="TlX-43-j24" secondAttribute="centerY" id="Uvt-WJ-dYm"/>
+                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="EXG-gH-3I0" secondAttribute="trailing" id="cu0-xG-vBm"/>
+                <constraint firstAttribute="bottom" secondItem="TlX-43-j24" secondAttribute="bottom" constant="2" id="fre-rM-fyz"/>
+                <constraint firstItem="EXG-gH-3I0" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" id="sqk-cr-1h4"/>
+                <constraint firstItem="TlX-43-j24" firstAttribute="top" secondItem="EXG-gH-3I0" secondAttribute="bottom" constant="5" id="tEi-wz-YcW"/>
+                <constraint firstItem="TlX-43-j24" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" id="ySi-9B-IaZ"/>
+            </constraints>
+            <connections>
+                <outlet property="speakerName" destination="EXG-gH-3I0" id="AkS-Ga-LEZ"/>
+                <outlet property="volumeButton" destination="TlX-43-j24" id="HiM-Rb-khL"/>
+                <outlet property="volumeSlider" destination="ZCH-ik-ck6" id="QQy-bv-NJ5"/>
+            </connections>
+            <point key="canvasLocation" x="-171" y="43"/>
+        </customView>
+    </objects>
+    <resources>
+        <image name="ic_volume_up" width="24" height="24"/>
+    </resources>
+</document>
