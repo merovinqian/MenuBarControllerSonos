@@ -480,19 +480,31 @@ class ControlVC: NSViewController {
         }
     }
     
+    //MARK: Menu
     @IBAction func showMenu(_ sender: NSView) {
         let appMenu = NSMenu()
+        // Launch on Startup
         if UserDefaults.standard.isLaunchAtLoginEnabled {
             appMenu.addItem(withTitle: NSLocalizedString("Stop launching App on startup", comment: "menu item"), action: #selector(launchAppOnLogin), keyEquivalent: "")
         }else {
             appMenu.addItem(withTitle: NSLocalizedString("Launch App on startup", comment: "menu item"), action: #selector(launchAppOnLogin), keyEquivalent: "")
         }
+        //Add speakers manually
+        appMenu.addItem(withTitle: NSLocalizedString("Add speaker manually", comment: "Menu item"), action: #selector(showManualMenu), keyEquivalent: "")
+        
+        // -- Seperator
+        appMenu.addItem(NSMenuItem.separator())
         
         appMenu.addItem(withTitle: NSLocalizedString("Write a review", comment: "menu item"), action: #selector(writeAReview), keyEquivalent: "")
         appMenu.addItem(withTitle: NSLocalizedString("Send Feedback", comment: "Send feedback menu item"), action: #selector(sendFeedback), keyEquivalent: "")
+        
+        // -- Seperator
         appMenu.addItem(NSMenuItem.separator())
+        
         appMenu.addItem(withTitle: NSLocalizedString("Show Imprint", comment: "menu item"), action: #selector(openImprint), keyEquivalent: "")
         appMenu.addItem(withTitle: NSLocalizedString("Software licenses", comment: "menu item"), action: #selector(openLicenses), keyEquivalent: "")
+        
+        // -- Seperator
         appMenu.addItem(NSMenuItem.separator())
         appMenu.addItem(withTitle: NSLocalizedString("Quit", comment: "menu item"), action: #selector(quitApp), keyEquivalent: "")
         

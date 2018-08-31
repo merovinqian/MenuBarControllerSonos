@@ -58,3 +58,27 @@
 
 /* menu item */
 "Write a review" = "Write a review";
+
+/* Menu item */
+"Add speaker manually" = "Add speaker manually";
+
+/* Button label */
+"Add speaker" = "Add speaker";
+
+/* Header Label of the view */
+"Enter a valid IP Address from one of your speakers" = "Enter a valid IP Address from one of your speakers";
+
+/* Explanation text */
+"To view the speakers IP Address: \nOpen the Sonos Controller App on your Mac.\nIn the Menu select: Sonos-> About my Sonos System" = "To view the speakers IP Address: \nOpen the Sonos Controller App on your Mac.\nIn the Menu select: Sonos-> About my Sonos System";
+
+/* Error informative text */
+"Check the following things:\nIs the IP Address correct?\nDoes your firewall block connections?" = "Check the following things:\nIs the IP Address correct?\nDoes your firewall block connections?";
+
+/* Error message */
+"Could not connect to the speaker" = "Could not connect to the speaker";
+
+/* Error message */
+"IP Address has been entered wrong. Check the IP Address again" = "IP Address has been entered wrong. Check the IP Address again";
+
+/* Success message */
+"Successfully added speaker" = "Successfully added speaker";

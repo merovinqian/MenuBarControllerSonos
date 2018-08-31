@@ -54,3 +54,27 @@
 "Create Debug Report" = "Create Debug Report";
 
 "Home theater" = "Heimkino";
+
+/* Menu item */
+"Add speaker manually" = "Speaker manuell hinzufügen";
+
+/* Button label */
+"Add speaker" = "Speaker hinzufügen";
+
+/* Header Label of the view */
+"Enter a valid IP Address from one of your speakers" = "Korrekte IP Addresse eingegben";
+
+/* Explanation text */
+"To view the speakers IP Address: \nOpen the Sonos Controller App on your Mac.\nIn the Menu select: Sonos-> About my Sonos System" = "Um die IP Adresse des Lautsprechers zu finden:\nÖffne die Sonos Controller App am Mac\nIm Menu wähle Sonos->Über mein Sonos System";
+
+/* Error informative text */
+"Check the following things:\nIs the IP Address correct?\nDoes your firewall block connections?" = "Überprüfe die folgenden Dinge:\nIst die IP Address korrekt?\nBlockiert die Firewall die Verbindungen?";
+
+/* Error message */
+"Could not connect to the speaker" = "Konnte sich nicht zum Lautsprecher verbinden";
+
+/* Error message */
+"IP Address has been entered wrong. Check the IP Address again" = "Die IP Addresse wurde falsch eingegeben. Bitte überprüfe die IP Addresse";
+
+/* Success message */
+"Successfully added speaker" = "Lautsprecher wurde erfolgreich hinzugefügt";

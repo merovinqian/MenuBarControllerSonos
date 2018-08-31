@@ -683,6 +683,99 @@
             </objects>
             <point key="canvasLocation" x="75" y="0.0"/>
         </scene>
+        <!--Window Controller-->
+        <scene sceneID="SxJ-JC-tNQ">
+            <objects>
+                <windowController storyboardIdentifier="AddManuallyWindow" id="Ync-Us-zQA" sceneMemberID="viewController">
+                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="gJh-YI-s6H">
+                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+                        <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+                        <rect key="contentRect" x="2345" y="221" width="480" height="270"/>
+                        <rect key="screenRect" x="1920" y="-240" width="2560" height="1418"/>
+                        <connections>
+                            <outlet property="delegate" destination="Ync-Us-zQA" id="kmV-ZT-Aay"/>
+                        </connections>
+                    </window>
+                    <connections>
+                        <segue destination="vow-Kz-hUQ" kind="relationship" relationship="window.shadowedContentViewController" id="adt-nK-beP"/>
+                    </connections>
+                </windowController>
+                <customObject id="9sh-0g-i5Z" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="485" y="266"/>
+        </scene>
+        <!--Add Manually Controller-->
+        <scene sceneID="LcB-DR-X4d">
+            <objects>
+                <viewController storyboardIdentifier="AddManuallyController" id="vow-Kz-hUQ" customClass="AddManuallyController" customModule="DebugTarget" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="4Oh-tK-9X2">
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="141"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="N56-Vk-N7r">
+                                <rect key="frame" x="20" y="80" width="351" height="22"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="192.168.0.32" drawsBackground="YES" id="eFa-0e-U59">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ANX-zl-iCb">
+                                <rect key="frame" x="385" y="74" width="81" height="32"/>
+                                <buttonCell key="cell" type="push" title="Button" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="nbe-Ad-JBi">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="addSpeaker:" target="vow-Kz-hUQ" id="dAD-VT-uaF"/>
+                                </connections>
+                            </button>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="c63-fI-Kde">
+                                <rect key="frame" x="18" y="110" width="444" height="17"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Enter a valid IP Address from one of your speakers" id="Wkx-1I-sp7">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="jds-oT-jrB">
+                                <rect key="frame" x="18" y="14" width="444" height="51"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" id="uyv-1i-UNq">
+                                    <font key="font" metaFont="system"/>
+                                    <string key="title">To view the speakers IP Address: 
+Open the Sonos Controller App on your Mac. 
+In the Menu select: Sonos-&gt; About my Sonos System</string>
+                                    <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="c63-fI-Kde" secondAttribute="trailing" constant="20" id="1tR-a8-dTd"/>
+                            <constraint firstAttribute="trailing" secondItem="jds-oT-jrB" secondAttribute="trailing" constant="20" id="DAo-TG-z8y"/>
+                            <constraint firstAttribute="trailing" secondItem="ANX-zl-iCb" secondAttribute="trailing" constant="20" id="K1v-mx-bKE"/>
+                            <constraint firstItem="c63-fI-Kde" firstAttribute="top" secondItem="4Oh-tK-9X2" secondAttribute="top" constant="14" id="PiD-fs-c41"/>
+                            <constraint firstItem="c63-fI-Kde" firstAttribute="leading" secondItem="4Oh-tK-9X2" secondAttribute="leading" constant="20" id="U7f-6q-dZ0"/>
+                            <constraint firstItem="N56-Vk-N7r" firstAttribute="leading" secondItem="4Oh-tK-9X2" secondAttribute="leading" constant="20" id="YZ3-2H-AR6"/>
+                            <constraint firstItem="jds-oT-jrB" firstAttribute="top" secondItem="ANX-zl-iCb" secondAttribute="bottom" constant="16" id="a0e-ys-ks0"/>
+                            <constraint firstItem="jds-oT-jrB" firstAttribute="leading" secondItem="4Oh-tK-9X2" secondAttribute="leading" constant="20" id="b8a-AH-75m"/>
+                            <constraint firstItem="N56-Vk-N7r" firstAttribute="top" secondItem="c63-fI-Kde" secondAttribute="bottom" constant="8" id="ikB-LX-t1r"/>
+                            <constraint firstItem="ANX-zl-iCb" firstAttribute="top" secondItem="c63-fI-Kde" secondAttribute="bottom" constant="8" id="nL1-rC-E3c"/>
+                            <constraint firstItem="ANX-zl-iCb" firstAttribute="leading" secondItem="N56-Vk-N7r" secondAttribute="trailing" constant="20" id="tD2-ec-yzz"/>
+                            <constraint firstAttribute="bottom" secondItem="jds-oT-jrB" secondAttribute="bottom" constant="14" id="vUe-mf-w97"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="addButton" destination="ANX-zl-iCb" id="TQB-lb-c8Z"/>
+                        <outlet property="explanationLabel" destination="jds-oT-jrB" id="BVQ-O6-au7"/>
+                        <outlet property="headerLabel" destination="c63-fI-Kde" id="BD7-et-Izg"/>
+                        <outlet property="ipTextField" destination="N56-Vk-N7r" id="yms-HK-b1e"/>
+                    </connections>
+                </viewController>
+                <customObject id="hhQ-5p-xP0" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1141" y="259"/>
+        </scene>
         <!--ControlVC-->
         <scene sceneID="94k-eK-MxV">
             <objects>
@@ -920,10 +1013,10 @@
     </scenes>
     <resources>
         <image name="horizontal_line" width="220" height="1"/>
-        <image name="ic_pause" width="48" height="48"/>
+        <image name="ic_pause" width="24" height="24"/>
         <image name="ic_settings" width="15" height="15"/>
-        <image name="ic_skip_next" width="48" height="48"/>
-        <image name="ic_skip_previous" width="48" height="48"/>
-        <image name="ic_volume_up" width="48" height="48"/>
+        <image name="ic_skip_next" width="24" height="24"/>
+        <image name="ic_skip_previous" width="24" height="24"/>
+        <image name="ic_volume_up" width="24" height="24"/>
     </resources>
 </document>

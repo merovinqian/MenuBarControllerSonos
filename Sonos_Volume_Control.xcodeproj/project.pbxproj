@@ -75,6 +75,9 @@
 		11C13476204F4DE600AC3581 /* ControlVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C13475204F4DE600AC3581 /* ControlVC.swift */; };
 		11C67D7B2051F01C002777D4 /* EventMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C67D7A2051F01C002777D4 /* EventMonitor.swift */; };
 		11CF320520629C6B00A79D9A /* CustomScrolllView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CF320420629C6B00A79D9A /* CustomScrolllView.swift */; };
+		11D1421221395FAD00B264FD /* AddManuallyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11D1421121395FAD00B264FD /* AddManuallyController.swift */; };
+		11D1421321395FAD00B264FD /* AddManuallyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11D1421121395FAD00B264FD /* AddManuallyController.swift */; };
+		11D1421421395FAD00B264FD /* AddManuallyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11D1421121395FAD00B264FD /* AddManuallyController.swift */; };
 		11DC8651207E911900809C2E /* SonoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11DC863E207E90C100809C2E /* SonoSwift.framework */; };
 		11DC8652207E911900809C2E /* SonoSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 11DC863E207E90C100809C2E /* SonoSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		11F64C0E2050A2AE005ED2E3 /* Weak.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11F64C0C2050A2AE005ED2E3 /* Weak.framework */; };
@@ -235,6 +238,7 @@
 		11C67D7A2051F01C002777D4 /* EventMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventMonitor.swift; sourceTree = "<group>"; };
 		11CF3203205C2DA400A79D9A /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		11CF320420629C6B00A79D9A /* CustomScrolllView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomScrolllView.swift; sourceTree = "<group>"; };
+		11D1421121395FAD00B264FD /* AddManuallyController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddManuallyController.swift; sourceTree = "<group>"; };
 		11DC8638207E90BF00809C2E /* SonoSwift.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SonoSwift.xcodeproj; path = SonoSwift/SonoSwift.xcodeproj; sourceTree = "<group>"; };
 		11F64C0C2050A2AE005ED2E3 /* Weak.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Weak.framework; path = Carthage/Build/Mac/Weak.framework; sourceTree = "<group>"; };
 		11F64C0D2050A2AE005ED2E3 /* CocoaAsyncSocket.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CocoaAsyncSocket.framework; path = Carthage/Build/Mac/CocoaAsyncSocket.framework; sourceTree = "<group>"; };
@@ -314,6 +318,7 @@
 				11C13475204F4DE600AC3581 /* ControlVC.swift */,
 				116CD09D2120B1E200D08464 /* VolumeSpeakerView.swift */,
 				1151CDE42072A6DF001150F7 /* MenuHandler.swift */,
+				11D1421121395FAD00B264FD /* AddManuallyController.swift */,
 				11C67D7A2051F01C002777D4 /* EventMonitor.swift */,
 				1151CDE72072AA49001150F7 /* UserDefaultsExtension.swift */,
 				11CF320420629C6B00A79D9A /* CustomScrolllView.swift */,
@@ -569,6 +574,7 @@
 				1151CDE82072AA49001150F7 /* UserDefaultsExtension.swift in Sources */,
 				116CD09E2120B1E200D08464 /* VolumeSpeakerView.swift in Sources */,
 				11489604206AEE1E003A02C0 /* PlayPauseButton.swift in Sources */,
+				11D1421221395FAD00B264FD /* AddManuallyController.swift in Sources */,
 				1151CDE52072A6DF001150F7 /* MenuHandler.swift in Sources */,
 				1141705B2080873B0030EBF2 /* AppUtil.swift in Sources */,
 				11326EB12108F7A2001C7486 /* SystemAudioRemoteHandler.swift in Sources */,
@@ -583,6 +589,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				112617C22089242E008005E6 /* ControlVC.swift in Sources */,
+				11D1421421395FAD00B264FD /* AddManuallyController.swift in Sources */,
 				112617C32089242E008005E6 /* CustomScrolllView.swift in Sources */,
 				112617C42089242E008005E6 /* CustomScrollClipView.swift in Sources */,
 				112617C52089242E008005E6 /* UserDefaultsExtension.swift in Sources */,
@@ -600,6 +607,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				11453555206BBEF5008C8FC6 /* ControlVC.swift in Sources */,
+				11D1421321395FAD00B264FD /* AddManuallyController.swift in Sources */,
 				11453558206BBEF5008C8FC6 /* CustomScrolllView.swift in Sources */,
 				1145355D206BBEF5008C8FC6 /* CustomScrollClipView.swift in Sources */,
 				1151CDE92072AA49001150F7 /* UserDefaultsExtension.swift in Sources */,

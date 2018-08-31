@@ -13,3 +13,15 @@ internal func dPrint(_ items: Any..., separator: String = " ", terminator: Strin
         print(items, separator: separator, terminator: terminator)
     #endif
 }
+
+infix operator ~~
+extension String {
+    
+    func formatted(_ arguments: CVarArg) -> String {
+        return String.init(format: self.description, arguments)
+    }
+    
+    static func ~~(lhs: String, rhs: CVarArg) -> String {
+        return lhs.formatted(rhs)
+    }
+}

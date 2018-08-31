@@ -39,6 +39,11 @@ extension ControlVC {
         }
     }
     
+    @objc func showManualMenu() {
+        let windowController = storyboard?.instantiateController(withIdentifier: .init("AddManuallyWindow")) as? NSWindowController
+        windowController?.showWindow(self)
+    }
+    
     /// Turn on the automatic start of the app when starting the mac
     func turnLaunchAtLoginOn() {
         let loginItemid = "de.sn0wfreeze.Sonos-Volume-Control-Launcher"

@@ -237,25 +237,34 @@ extension SonosController: SSDPDiscoveryDelegate {
     
     func retrieveDeviceInfo(response: SSDPMSearchResponse) {
         URLSession.init(configuration: URLSessionConfiguration.default).dataTask(with: response.location) { (data, resp, err) in
-            if let data = data {
-                let xml =  SWXMLHash.parse(data)
-                let udn = xml["root"]["device"]["UDN"].element?.text
-                //Check if device is already available
-                if let sonos = self.sonosSystems.first(where: {$0.udn == udn}) {
-                    //Update the device
-                    sonos.update(withXML: xml, url: response.location)
-                    sonos.updateAll {
-                        self.discoveredDevice(sonos: sonos)
-                    }
-                }else {
-                    //Add a new device
-                    SonosDevice(xml: xml, url: response.location, { (sonos) in
-                       self.discoveredDevice(sonos: sonos)
-                    })
-                }
-            }
+            self.setupSonosDeviceFromData(data: data, url: response.location)
             }.resume()
     }
+    
+    
+    /// Setup the SonosDevice from the XML that has been loaded
+    ///
+    /// - Parameter data: data is XML Data which has been retrieved from a Sonos Speaker by accessing /xml/device_description.xml
+    private func setupSonosDeviceFromData(data: Data?, url: URL) {
+        if let data = data {
+            let xml =  SWXMLHash.parse(data)
+            let udn = xml["root"]["device"]["UDN"].element?.text
+            //Check if device is already available
+            if let sonos = self.sonosSystems.first(where: {$0.udn == udn}) {
+                //Update the device
+                sonos.update(withXML: xml, url: url)
+                sonos.updateAll {
+                    self.discoveredDevice(sonos: sonos)
+                }
+            }else {
+                //Add a new device
+                _ = SonosDevice(xml: xml, url: url, { (sonos) in
+                    self.discoveredDevice(sonos: sonos)
+                })
+            }
+        }
+    }
+    
     
     
     /// A new SonosDevice has been discovered and initialized. Update the device list and groups
@@ -303,6 +312,34 @@ extension SonosController: SSDPDiscoveryDelegate {
         }
     }
     
+    
+    /// Add a Sonos speaker manually by passing the IP Address
+    ///
+    /// - Parameter ipAddress: String representing an IP Address like 192.168.1.201 or in IPv6 format
+    public func addSpeakerManually(ipAddress: String, completion: @escaping (_ e:Error?)->Void) throws{
+        var urlString = ""
+        if ipAddress.contains(":") { //IPv6
+            //Different url formatting necessary
+            urlString = "http://[%@]:1400/xml/device_description.xml" ~~ ipAddress
+        }else {//IPv4
+            urlString = "http://%@:1400/xml/device_description.xml" ~~ ipAddress
+        }
+        
+        guard let url = URL(string: urlString)
+            else {throw SonosConnError.invalidIPAddress}
+        
+        URLSession.init(configuration: URLSessionConfiguration.default).dataTask(with: url) { (data, resp, err) in
+            self.setupSonosDeviceFromData(data: data, url: url)
+            if let err = err {
+                // An error occurred when searching for the device
+                DispatchQueue.main.async {completion(SonosConnError.connectionError(err: err))}
+            }else {
+                // No error occurred
+                DispatchQueue.main.async {completion(nil)}
+            }
+            }.resume()
+    }
+    
     func sortSpeakers() {
         //Sort the sonos systems
         self.sonosSystems.sort { (lhs, rhs) -> Bool in
@@ -318,6 +355,11 @@ extension SonosController: SSDPDiscoveryDelegate {
         dPrint("Session closed")
         self.removeOldDevices()
     }
+}
+
+public enum SonosConnError: Error {
+    case invalidIPAddress
+    case connectionError(err: Error)
 }
 
 let listOfUnallowedDevices = ["Sonos BOOST", "Sonos Bridge"]
