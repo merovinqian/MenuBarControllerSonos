@@ -709,11 +709,11 @@
             <objects>
                 <viewController storyboardIdentifier="AddManuallyController" id="vow-Kz-hUQ" customClass="AddManuallyController" customModule="DebugTarget" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="4Oh-tK-9X2">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="141"/>
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="288"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="N56-Vk-N7r">
-                                <rect key="frame" x="20" y="80" width="351" height="22"/>
+                                <rect key="frame" x="20" y="227" width="351" height="22"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="192.168.0.32" drawsBackground="YES" id="eFa-0e-U59">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
@@ -721,7 +721,7 @@
                                 </textFieldCell>
                             </textField>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ANX-zl-iCb">
-                                <rect key="frame" x="385" y="74" width="81" height="32"/>
+                                <rect key="frame" x="385" y="221" width="81" height="32"/>
                                 <buttonCell key="cell" type="push" title="Button" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="nbe-Ad-JBi">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -731,7 +731,7 @@
                                 </connections>
                             </button>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="c63-fI-Kde">
-                                <rect key="frame" x="18" y="110" width="444" height="17"/>
+                                <rect key="frame" x="18" y="257" width="444" height="17"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Enter a valid IP Address from one of your speakers" id="Wkx-1I-sp7">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -739,7 +739,7 @@
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="jds-oT-jrB">
-                                <rect key="frame" x="18" y="14" width="444" height="51"/>
+                                <rect key="frame" x="18" y="161" width="444" height="51"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" id="uyv-1i-UNq">
                                     <font key="font" metaFont="system"/>
                                     <string key="title">To view the speakers IP Address: 
@@ -749,32 +749,127 @@ In the Menu select: Sonos-&gt; About my Sonos System</string>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="rvZ-TD-bsZ">
+                                <rect key="frame" x="18" y="136" width="192" height="17"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Currently Added IP addresses: " id="89r-6b-LBP">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <scrollView autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sW1-2x-AQO">
+                                <rect key="frame" x="20" y="8" width="440" height="120"/>
+                                <clipView key="contentView" id="HXb-1C-j8F">
+                                    <rect key="frame" x="1" y="23" width="438" height="96"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" alternatingRowBackgroundColors="YES" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" headerView="ybo-9x-a8h" viewBased="YES" id="lWe-km-feQ">
+                                            <rect key="frame" x="0.0" y="0.0" width="438" height="96"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <size key="intercellSpacing" width="3" height="2"/>
+                                            <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
+                                            <tableColumns>
+                                                <tableColumn identifier="" width="435" minWidth="10" maxWidth="3.4028234663852886e+38" id="Rgn-jN-Puv">
+                                                    <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="IP Address">
+                                                        <font key="font" metaFont="smallSystem"/>
+                                                        <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </tableHeaderCell>
+                                                    <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" identifier="ipAddressCellId" title="Text Cell" id="5qa-g2-hM6">
+                                                        <font key="font" metaFont="system"/>
+                                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                    </textFieldCell>
+                                                    <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                                    <prototypeCellViews>
+                                                        <tableCellView identifier="ipAddressCellId" id="AnY-Va-28a">
+                                                            <rect key="frame" x="1" y="1" width="435" height="17"/>
+                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                            <subviews>
+                                                                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="t5t-Wl-JLA">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="435" height="17"/>
+                                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                                                    <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="qjh-eQ-g61">
+                                                                        <font key="font" metaFont="system"/>
+                                                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                                    </textFieldCell>
+                                                                </textField>
+                                                            </subviews>
+                                                            <connections>
+                                                                <outlet property="textField" destination="t5t-Wl-JLA" id="gf9-Bd-3LM"/>
+                                                            </connections>
+                                                        </tableCellView>
+                                                    </prototypeCellViews>
+                                                </tableColumn>
+                                            </tableColumns>
+                                            <connections>
+                                                <outlet property="dataSource" destination="vow-Kz-hUQ" id="Eyu-DK-ThC"/>
+                                                <outlet property="delegate" destination="vow-Kz-hUQ" id="mno-xE-HdS"/>
+                                            </connections>
+                                        </tableView>
+                                    </subviews>
+                                </clipView>
+                                <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="HsV-gY-mpv">
+                                    <rect key="frame" x="1" y="103" width="438" height="16"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                                <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="0jL-PX-GME">
+                                    <rect key="frame" x="224" y="17" width="15" height="102"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                                <tableHeaderView key="headerView" id="ybo-9x-a8h">
+                                    <rect key="frame" x="0.0" y="0.0" width="438" height="23"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableHeaderView>
+                            </scrollView>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="SFR-fm-8zz">
+                                <rect key="frame" x="385" y="127" width="81" height="32"/>
+                                <buttonCell key="cell" type="push" title="Button" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="ZNU-Zt-Sfh">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                    <connections>
+                                        <action selector="removeAddedSpeakers:" target="vow-Kz-hUQ" id="ecd-7s-R6k"/>
+                                    </connections>
+                                </buttonCell>
+                            </button>
                         </subviews>
                         <constraints>
+                            <constraint firstItem="rvZ-TD-bsZ" firstAttribute="leading" secondItem="4Oh-tK-9X2" secondAttribute="leading" constant="20" id="1ra-ap-Yv8"/>
                             <constraint firstAttribute="trailing" secondItem="c63-fI-Kde" secondAttribute="trailing" constant="20" id="1tR-a8-dTd"/>
+                            <constraint firstAttribute="trailing" secondItem="sW1-2x-AQO" secondAttribute="trailing" constant="20" id="Bn7-Ig-qg7"/>
                             <constraint firstAttribute="trailing" secondItem="jds-oT-jrB" secondAttribute="trailing" constant="20" id="DAo-TG-z8y"/>
                             <constraint firstAttribute="trailing" secondItem="ANX-zl-iCb" secondAttribute="trailing" constant="20" id="K1v-mx-bKE"/>
+                            <constraint firstAttribute="bottom" secondItem="sW1-2x-AQO" secondAttribute="bottom" constant="8" id="L2a-Je-eLE"/>
                             <constraint firstItem="c63-fI-Kde" firstAttribute="top" secondItem="4Oh-tK-9X2" secondAttribute="top" constant="14" id="PiD-fs-c41"/>
                             <constraint firstItem="c63-fI-Kde" firstAttribute="leading" secondItem="4Oh-tK-9X2" secondAttribute="leading" constant="20" id="U7f-6q-dZ0"/>
                             <constraint firstItem="N56-Vk-N7r" firstAttribute="leading" secondItem="4Oh-tK-9X2" secondAttribute="leading" constant="20" id="YZ3-2H-AR6"/>
                             <constraint firstItem="jds-oT-jrB" firstAttribute="top" secondItem="ANX-zl-iCb" secondAttribute="bottom" constant="16" id="a0e-ys-ks0"/>
+                            <constraint firstAttribute="trailing" secondItem="SFR-fm-8zz" secondAttribute="trailing" constant="20" id="b6t-De-57S"/>
                             <constraint firstItem="jds-oT-jrB" firstAttribute="leading" secondItem="4Oh-tK-9X2" secondAttribute="leading" constant="20" id="b8a-AH-75m"/>
+                            <constraint firstItem="sW1-2x-AQO" firstAttribute="leading" secondItem="4Oh-tK-9X2" secondAttribute="leading" constant="20" id="cx3-Py-v0X"/>
+                            <constraint firstItem="sW1-2x-AQO" firstAttribute="top" secondItem="rvZ-TD-bsZ" secondAttribute="bottom" constant="8" id="fdY-dV-4pH"/>
                             <constraint firstItem="N56-Vk-N7r" firstAttribute="top" secondItem="c63-fI-Kde" secondAttribute="bottom" constant="8" id="ikB-LX-t1r"/>
+                            <constraint firstItem="SFR-fm-8zz" firstAttribute="centerY" secondItem="rvZ-TD-bsZ" secondAttribute="centerY" id="l7e-Zv-ynh"/>
                             <constraint firstItem="ANX-zl-iCb" firstAttribute="top" secondItem="c63-fI-Kde" secondAttribute="bottom" constant="8" id="nL1-rC-E3c"/>
+                            <constraint firstItem="rvZ-TD-bsZ" firstAttribute="top" secondItem="jds-oT-jrB" secondAttribute="bottom" constant="8" id="qRx-QU-MzD"/>
                             <constraint firstItem="ANX-zl-iCb" firstAttribute="leading" secondItem="N56-Vk-N7r" secondAttribute="trailing" constant="20" id="tD2-ec-yzz"/>
-                            <constraint firstAttribute="bottom" secondItem="jds-oT-jrB" secondAttribute="bottom" constant="14" id="vUe-mf-w97"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="addButton" destination="ANX-zl-iCb" id="TQB-lb-c8Z"/>
+                        <outlet property="deleteAllButton" destination="SFR-fm-8zz" id="JR3-Gg-0jd"/>
                         <outlet property="explanationLabel" destination="jds-oT-jrB" id="BVQ-O6-au7"/>
                         <outlet property="headerLabel" destination="c63-fI-Kde" id="BD7-et-Izg"/>
                         <outlet property="ipTextField" destination="N56-Vk-N7r" id="yms-HK-b1e"/>
+                        <outlet property="tableView" destination="lWe-km-feQ" id="Nsd-SF-qEM"/>
+                        <outlet property="tableViewLabel" destination="rvZ-TD-bsZ" id="IRi-SE-zIP"/>
                     </connections>
                 </viewController>
                 <customObject id="hhQ-5p-xP0" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1141" y="259"/>
+            <point key="canvasLocation" x="1141" y="332"/>
         </scene>
         <!--ControlVC-->
         <scene sceneID="94k-eK-MxV">

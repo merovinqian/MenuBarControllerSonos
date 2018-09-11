@@ -39,4 +39,14 @@ extension UserDefaults {
             self.synchronize()
         }
     }
+    
+    var manuallyAddedSpeakers: [String]? {
+        get {
+            return self.array(forKey: "manualSpeakers") as? [String]
+        }
+        set(v) {
+            self.set(v, forKey: "manualSpeakers")
+            self.synchronize()
+        }
+    }
 }

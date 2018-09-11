@@ -14,6 +14,9 @@ class AddManuallyController: NSViewController {
     @IBOutlet weak var ipTextField: NSTextField!
     @IBOutlet weak var addButton: NSButton!
     @IBOutlet weak var explanationLabel: NSTextField!
+    @IBOutlet weak var tableView: NSTableView!
+    @IBOutlet weak var deleteAllButton: NSButton!
+    @IBOutlet weak var tableViewLabel: NSTextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +25,8 @@ class AddManuallyController: NSViewController {
         headerLabel.stringValue = NSLocalizedString("Enter a valid IP Address from one of your speakers", comment: "Header Label of the view")
         addButton.title = NSLocalizedString("Add speaker", comment: "Button label")
         explanationLabel.stringValue = NSLocalizedString("To view the speakers IP Address: \nOpen the Sonos Controller App on your Mac.\nIn the Menu select: Sonos-> About my Sonos System", comment:"Explanation text")
+        deleteAllButton.title = NSLocalizedString("Remove all speakers", comment: "Button label")
+        tableViewLabel.stringValue = NSLocalizedString("Currently Added IP addresses: ", comment: "TableView description label")
     }
     
     
@@ -51,6 +56,7 @@ class AddManuallyController: NSViewController {
                     alert.alertStyle = .warning
                     alert.runModal()
                 }
+                self.tableView.reloadData()
             })
         }catch let error {
             dPrint(error)
@@ -64,6 +70,34 @@ class AddManuallyController: NSViewController {
             alert.runModal()
             
         }
+    }
+    
+    @IBAction func removeAddedSpeakers(_ sender: Any) {
+        UserDefaults.standard.manuallyAddedSpeakers = nil
+        self.tableView.reloadData()
+        SonosController.shared.reloadDevices()
+    }
+    
+}
+
+extension AddManuallyController: NSTableViewDataSource, NSTableViewDelegate {
+    func numberOfRows(in tableView: NSTableView) -> Int {
+        let speakers = UserDefaults.standard.manuallyAddedSpeakers ?? []
+        return speakers.count
+    }
+    
+    func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
+        guard let speakers = UserDefaults.standard.manuallyAddedSpeakers,
+            speakers.count > row  else {return nil}
+        let currentIP = speakers[row]
+        
+        if let cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "ipAddressCellId"), owner: nil) as? NSTableCellView {
+            cell.textField?.stringValue = currentIP
+            
+            return cell
+        }
+        
+        return nil
     }
     
 }

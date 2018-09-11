@@ -225,9 +225,28 @@ extension SonosController: SSDPDiscoveryDelegate {
         self.session = try! discovery.startDiscovery(request: request, timeout: 10.0)
     }
     
+    
+    /// Add the manually added speakers to the list
+    func discoverManuallyAddedSpeakers() {
+        guard let speakerIPs = UserDefaults.standard.manuallyAddedSpeakers else {return}
+        for ip in speakerIPs {
+            try? self.addSpeakerManually(ipAddress: ip) { (_) in}
+        }
+    }
+    
     func stopDiscovery() {
         self.session?.close()
         self.session = nil
+    }
+    
+    
+    /// Remove all devices from the list and restart the discovery
+    public func reloadDevices() {
+        self.sonosGroups = [:]
+        self.sonosSystems = []
+        self.lastDiscoveryDeviceList = []
+        self.unlistedSystems = []
+        self.searchForDevices()
     }
     
     public func discoveredDevice(response: SSDPMSearchResponse, session: SSDPDiscoverySession) {
@@ -336,8 +355,23 @@ extension SonosController: SSDPDiscoveryDelegate {
             }else {
                 // No error occurred
                 DispatchQueue.main.async {completion(nil)}
+                self.saveSpeakersIP(ipAddress: ipAddress)
             }
             }.resume()
+    }
+    
+    
+    /// Save the speakers IP address to a list of saved devices
+    ///
+    /// - Parameter ipAddress: the speaker's ip
+    func saveSpeakersIP(ipAddress: String) {
+        if let speakers = UserDefaults.standard.manuallyAddedSpeakers {
+            var speakerSet = Set(speakers)
+            speakerSet.insert(ipAddress)
+            UserDefaults.standard.manuallyAddedSpeakers = Array(speakerSet)
+        }else {
+            UserDefaults.standard.manuallyAddedSpeakers = [ipAddress]
+        }
     }
     
     func sortSpeakers() {
