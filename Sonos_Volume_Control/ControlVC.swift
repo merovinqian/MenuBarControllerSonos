@@ -7,7 +7,6 @@
 //
 
 import Cocoa
-import SWXMLHash
 import SonoSwift 
 
 class ControlVC: NSViewController {
@@ -527,6 +526,10 @@ class ControlVC: NSViewController {
 
 //MARK: -  SonosControllerDelegate
 extension ControlVC: SonosControllerDelegate {
+    func noSpeakersFound() {
+        
+    }
+    
     func didUpdateSpeakers() {
         if let lastSelected = UserDefaults.standard.activeSpeakerUDNs {
             let inActiveSpeakers = self.sCntrl.sonosSystems.filter({!lastSelected.contains($0.udn)})
@@ -588,9 +591,9 @@ extension ControlVC {
     // MARK: Storyboard instantiation
     static func freshController() -> ControlVC {
         //1.
-        let storyboard = NSStoryboard(name: NSStoryboard.Name(rawValue: "Main"), bundle: nil)
+        let storyboard = NSStoryboard(name: NSStoryboard.Name("Main"), bundle: nil)
         //2.
-        let identifier = NSStoryboard.SceneIdentifier(rawValue: "VolumeControlVC")
+        let identifier = NSStoryboard.SceneIdentifier("VolumeControlVC")
         //3.
         guard let viewcontroller = storyboard.instantiateController(withIdentifier: identifier) as? ControlVC else {
             fatalError("Why cant i find QuotesViewController? - Check Main.storyboard")

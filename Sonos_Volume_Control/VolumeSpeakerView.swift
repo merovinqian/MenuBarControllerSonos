@@ -26,7 +26,7 @@ class VolumeSpeakerView: NSView {
     
     static func withSpeaker(speaker: SonosDevice) -> VolumeSpeakerView {
         var topLevelObjects: NSArray?
-        Bundle.main.loadNibNamed(NSNib.Name(rawValue: "VolumeSpeakerView"), owner: self, topLevelObjects: &topLevelObjects)
+        Bundle.main.loadNibNamed(NSNib.Name("VolumeSpeakerView"), owner: self, topLevelObjects: &topLevelObjects)
         
         let view =  topLevelObjects?.first(where: { $0 is VolumeSpeakerView } ) as? VolumeSpeakerView
         view?.speaker = speaker

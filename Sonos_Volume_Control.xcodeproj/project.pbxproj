@@ -7,15 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1111253C2090BAA600F4E822 /* SonoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11DC863E207E90C100809C2E /* SonoSwift.framework */; };
 		1111253D2090BAC200F4E822 /* ServiceManagement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1151CDE22072A624001150F7 /* ServiceManagement.framework */; };
-		1111253E2090BACB00F4E822 /* SWXMLHash.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11F64C122050B1A0005ED2E3 /* SWXMLHash.framework */; };
-		1111253F2090BACB00F4E822 /* CocoaAsyncSocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11F64C0D2050A2AE005ED2E3 /* CocoaAsyncSocket.framework */; };
-		111125402090BACB00F4E822 /* Weak.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11F64C0C2050A2AE005ED2E3 /* Weak.framework */; };
-		111125412090BAED00F4E822 /* SWXMLHash.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 11F64C122050B1A0005ED2E3 /* SWXMLHash.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		111125422090BAED00F4E822 /* CocoaAsyncSocket.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 11F64C0D2050A2AE005ED2E3 /* CocoaAsyncSocket.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		111125432090BAED00F4E822 /* Weak.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 11F64C0C2050A2AE005ED2E3 /* Weak.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		111125442090BAF400F4E822 /* SonoSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 11DC863E207E90C100809C2E /* SonoSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1111254B2090CC3600F4E822 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1115C40D20751C57009494A5 /* Localizable.strings */; };
 		1111254C2090CC3600F4E822 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1115C40D20751C57009494A5 /* Localizable.strings */; };
 		1115C40F20751C57009494A5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1115C40D20751C57009494A5 /* Localizable.strings */; };
@@ -35,15 +27,7 @@
 		112617CD2089242E008005E6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1116E9D62040C015009D940F /* Assets.xcassets */; };
 		112617CE2089242E008005E6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1116E9D82040C015009D940F /* Main.storyboard */; };
 		112617CF2089242E008005E6 /* SampleAudio.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1116E9E22040CDA8009D940F /* SampleAudio.mp3 */; };
-		112617D920892ABF008005E6 /* SWXMLHash.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11F64C122050B1A0005ED2E3 /* SWXMLHash.framework */; };
-		112617DA20892ABF008005E6 /* SWXMLHash.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 11F64C122050B1A0005ED2E3 /* SWXMLHash.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		112617DB20892ABF008005E6 /* CocoaAsyncSocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11F64C0D2050A2AE005ED2E3 /* CocoaAsyncSocket.framework */; };
-		112617DC20892ABF008005E6 /* CocoaAsyncSocket.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 11F64C0D2050A2AE005ED2E3 /* CocoaAsyncSocket.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		112617DD20892ABF008005E6 /* Weak.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11F64C0C2050A2AE005ED2E3 /* Weak.framework */; };
-		112617DE20892ABF008005E6 /* Weak.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 11F64C0C2050A2AE005ED2E3 /* Weak.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		112617E520892AE0008005E6 /* SonoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11DC863E207E90C100809C2E /* SonoSwift.framework */; };
 		112617E620892AEA008005E6 /* ServiceManagement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1151CDE22072A624001150F7 /* ServiceManagement.framework */; };
-		112617E820892AFD008005E6 /* SonoSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 11DC863E207E90C100809C2E /* SonoSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		112617EF20892B46008005E6 /* Launcher.app in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1151CDDE2072A57E001150F7 /* Launcher.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		11326EB12108F7A2001C7486 /* SystemAudioRemoteHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11326EB02108F7A2001C7486 /* SystemAudioRemoteHandler.swift */; };
 		11326EB32108F91E001C7486 /* MyApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11326EB22108F91E001C7486 /* MyApplication.swift */; };
@@ -59,6 +43,7 @@
 		1145356E206BBEF5008C8FC6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1116E9D62040C015009D940F /* Assets.xcassets */; };
 		1145356F206BBEF5008C8FC6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1116E9D82040C015009D940F /* Main.storyboard */; };
 		11453570206BBEF5008C8FC6 /* SampleAudio.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1116E9E22040CDA8009D940F /* SampleAudio.mp3 */; };
+		1145BBB621779A3D00699039 /* SonoSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 11D550FA214D68C400F5F277 /* SonoSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		11489604206AEE1E003A02C0 /* PlayPauseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11489603206AEE1E003A02C0 /* PlayPauseButton.swift */; };
 		1151CDE12072A5C5001150F7 /* Launcher.app in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1151CDDE2072A57E001150F7 /* Launcher.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		1151CDE32072A624001150F7 /* ServiceManagement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1151CDE22072A624001150F7 /* ServiceManagement.framework */; };
@@ -78,14 +63,6 @@
 		11D1421221395FAD00B264FD /* AddManuallyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11D1421121395FAD00B264FD /* AddManuallyController.swift */; };
 		11D1421321395FAD00B264FD /* AddManuallyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11D1421121395FAD00B264FD /* AddManuallyController.swift */; };
 		11D1421421395FAD00B264FD /* AddManuallyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11D1421121395FAD00B264FD /* AddManuallyController.swift */; };
-		11DC8651207E911900809C2E /* SonoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11DC863E207E90C100809C2E /* SonoSwift.framework */; };
-		11DC8652207E911900809C2E /* SonoSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 11DC863E207E90C100809C2E /* SonoSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		11F64C0E2050A2AE005ED2E3 /* Weak.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11F64C0C2050A2AE005ED2E3 /* Weak.framework */; };
-		11F64C0F2050A2AE005ED2E3 /* Weak.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 11F64C0C2050A2AE005ED2E3 /* Weak.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		11F64C102050A2AE005ED2E3 /* CocoaAsyncSocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11F64C0D2050A2AE005ED2E3 /* CocoaAsyncSocket.framework */; };
-		11F64C112050A2AE005ED2E3 /* CocoaAsyncSocket.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 11F64C0D2050A2AE005ED2E3 /* CocoaAsyncSocket.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		11F64C132050B1A1005ED2E3 /* SWXMLHash.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11F64C122050B1A0005ED2E3 /* SWXMLHash.framework */; };
-		11F64C142050B1A1005ED2E3 /* SWXMLHash.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 11F64C122050B1A0005ED2E3 /* SWXMLHash.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		11F796CD206903B000E4FBE9 /* CustomScrollClipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F796CC206903B000E4FBE9 /* CustomScrollClipView.swift */; };
 /* End PBXBuildFile section */
 
@@ -104,13 +81,6 @@
 			remoteGlobalIDString = 1151CDC72072A57D001150F7;
 			remoteInfo = Launcher;
 		};
-		112617E920892AFD008005E6 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 11DC8638207E90BF00809C2E /* SonoSwift.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 11DC862C207E90BF00809C2E;
-			remoteInfo = SonoSwift;
-		};
 		112617EC20892B07008005E6 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 1151CDD92072A57D001150F7 /* Launcher.xcodeproj */;
@@ -125,19 +95,33 @@
 			remoteGlobalIDString = 1151CDC82072A57D001150F7;
 			remoteInfo = Launcher;
 		};
-		11DC863D207E90C100809C2E /* PBXContainerItemProxy */ = {
+		11D550F9214D68C400F5F277 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 11DC8638207E90BF00809C2E /* SonoSwift.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 11DC862D207E90BF00809C2E;
 			remoteInfo = SonoSwift;
 		};
-		11DC8653207E911900809C2E /* PBXContainerItemProxy */ = {
+		11D550FB214D68C400F5F277 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 11DC8638207E90BF00809C2E /* SonoSwift.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 11DC862C207E90BF00809C2E;
-			remoteInfo = SonoSwift;
+			proxyType = 2;
+			remoteGlobalIDString = 1111E25B20CFDAA600B2783E;
+			remoteInfo = "SonoSwift-iOS";
+		};
+		11D550FD214D68C400F5F277 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 11DC8638207E90BF00809C2E /* SonoSwift.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 1111E26320CFDAA600B2783E;
+			remoteInfo = "SonoSwift-iOSTests";
+		};
+		11D550FF214D68C400F5F277 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 11DC8638207E90BF00809C2E /* SonoSwift.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 117E1BC0214CF7090062CEEB;
+			remoteInfo = "SonoSwift-watchOS";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -148,10 +132,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				112617DC20892ABF008005E6 /* CocoaAsyncSocket.framework in Embed Frameworks */,
-				112617DA20892ABF008005E6 /* SWXMLHash.framework in Embed Frameworks */,
-				112617DE20892ABF008005E6 /* Weak.framework in Embed Frameworks */,
-				112617E820892AFD008005E6 /* SonoSwift.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -182,10 +162,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				111125442090BAF400F4E822 /* SonoSwift.framework in Embed Frameworks */,
-				111125412090BAED00F4E822 /* SWXMLHash.framework in Embed Frameworks */,
-				111125422090BAED00F4E822 /* CocoaAsyncSocket.framework in Embed Frameworks */,
-				111125432090BAED00F4E822 /* Weak.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -196,10 +172,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				11F64C112050A2AE005ED2E3 /* CocoaAsyncSocket.framework in Embed Frameworks */,
-				11F64C0F2050A2AE005ED2E3 /* Weak.framework in Embed Frameworks */,
-				11F64C142050B1A1005ED2E3 /* SWXMLHash.framework in Embed Frameworks */,
-				11DC8652207E911900809C2E /* SonoSwift.framework in Embed Frameworks */,
+				1145BBB621779A3D00699039 /* SonoSwift.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -239,10 +212,7 @@
 		11CF3203205C2DA400A79D9A /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		11CF320420629C6B00A79D9A /* CustomScrolllView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomScrolllView.swift; sourceTree = "<group>"; };
 		11D1421121395FAD00B264FD /* AddManuallyController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddManuallyController.swift; sourceTree = "<group>"; };
-		11DC8638207E90BF00809C2E /* SonoSwift.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SonoSwift.xcodeproj; path = SonoSwift/SonoSwift.xcodeproj; sourceTree = "<group>"; };
-		11F64C0C2050A2AE005ED2E3 /* Weak.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Weak.framework; path = Carthage/Build/Mac/Weak.framework; sourceTree = "<group>"; };
-		11F64C0D2050A2AE005ED2E3 /* CocoaAsyncSocket.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CocoaAsyncSocket.framework; path = Carthage/Build/Mac/CocoaAsyncSocket.framework; sourceTree = "<group>"; };
-		11F64C122050B1A0005ED2E3 /* SWXMLHash.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SWXMLHash.framework; path = Carthage/Build/Mac/SWXMLHash.framework; sourceTree = "<group>"; };
+		11DC8638207E90BF00809C2E /* SonoSwift.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SonoSwift.xcodeproj; path = ../SonoSwift/SonoSwift.xcodeproj; sourceTree = "<group>"; };
 		11F796CC206903B000E4FBE9 /* CustomScrollClipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomScrollClipView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -252,10 +222,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				1151CDE32072A624001150F7 /* ServiceManagement.framework in Frameworks */,
-				11F64C102050A2AE005ED2E3 /* CocoaAsyncSocket.framework in Frameworks */,
-				11F64C0E2050A2AE005ED2E3 /* Weak.framework in Frameworks */,
-				11F64C132050B1A1005ED2E3 /* SWXMLHash.framework in Frameworks */,
-				11DC8651207E911900809C2E /* SonoSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -264,10 +230,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				112617E620892AEA008005E6 /* ServiceManagement.framework in Frameworks */,
-				112617E520892AE0008005E6 /* SonoSwift.framework in Frameworks */,
-				112617DB20892ABF008005E6 /* CocoaAsyncSocket.framework in Frameworks */,
-				112617D920892ABF008005E6 /* SWXMLHash.framework in Frameworks */,
-				112617DD20892ABF008005E6 /* Weak.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -275,11 +237,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1111253C2090BAA600F4E822 /* SonoSwift.framework in Frameworks */,
 				1111253D2090BAC200F4E822 /* ServiceManagement.framework in Frameworks */,
-				1111253E2090BACB00F4E822 /* SWXMLHash.framework in Frameworks */,
-				1111253F2090BACB00F4E822 /* CocoaAsyncSocket.framework in Frameworks */,
-				111125402090BACB00F4E822 /* Weak.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -347,10 +305,13 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		11DC8639207E90BF00809C2E /* Products */ = {
+		11D550F3214D68C400F5F277 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				11DC863E207E90C100809C2E /* SonoSwift.framework */,
+				11D550FA214D68C400F5F277 /* SonoSwift.framework */,
+				11D550FC214D68C400F5F277 /* SonoSwift_iOS.framework */,
+				11D550FE214D68C400F5F277 /* SonoSwift-iOSTests.xctest */,
+				11D55100214D68C400F5F277 /* SonoSwift_watchOS.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -359,9 +320,6 @@
 			isa = PBXGroup;
 			children = (
 				1151CDE22072A624001150F7 /* ServiceManagement.framework */,
-				11F64C122050B1A0005ED2E3 /* SWXMLHash.framework */,
-				11F64C0D2050A2AE005ED2E3 /* CocoaAsyncSocket.framework */,
-				11F64C0C2050A2AE005ED2E3 /* Weak.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -383,7 +341,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				11DC8654207E911900809C2E /* PBXTargetDependency */,
 			);
 			name = "Menu Bar Controller for Sonos";
 			productName = Sonos_Volume_Control;
@@ -405,7 +362,6 @@
 			dependencies = (
 				112617E120892AD3008005E6 /* PBXTargetDependency */,
 				112617E420892AD7008005E6 /* PBXTargetDependency */,
-				112617EA20892AFD008005E6 /* PBXTargetDependency */,
 				112617ED20892B07008005E6 /* PBXTargetDependency */,
 			);
 			name = DebugTarget;
@@ -477,7 +433,7 @@
 					ProjectRef = 1151CDD92072A57D001150F7 /* Launcher.xcodeproj */;
 				},
 				{
-					ProductGroup = 11DC8639207E90BF00809C2E /* Products */;
+					ProductGroup = 11D550F3214D68C400F5F277 /* Products */;
 					ProjectRef = 11DC8638207E90BF00809C2E /* SonoSwift.xcodeproj */;
 				},
 			);
@@ -498,11 +454,32 @@
 			remoteRef = 1151CDDD2072A57E001150F7 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		11DC863E207E90C100809C2E /* SonoSwift.framework */ = {
+		11D550FA214D68C400F5F277 /* SonoSwift.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = SonoSwift.framework;
-			remoteRef = 11DC863D207E90C100809C2E /* PBXContainerItemProxy */;
+			remoteRef = 11D550F9214D68C400F5F277 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		11D550FC214D68C400F5F277 /* SonoSwift_iOS.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SonoSwift_iOS.framework;
+			remoteRef = 11D550FB214D68C400F5F277 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		11D550FE214D68C400F5F277 /* SonoSwift-iOSTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "SonoSwift-iOSTests.xctest";
+			remoteRef = 11D550FD214D68C400F5F277 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		11D55100214D68C400F5F277 /* SonoSwift_watchOS.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SonoSwift_watchOS.framework;
+			remoteRef = 11D550FF214D68C400F5F277 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -633,20 +610,10 @@
 			name = Launcher;
 			targetProxy = 112617E320892AD7008005E6 /* PBXContainerItemProxy */;
 		};
-		112617EA20892AFD008005E6 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = SonoSwift;
-			targetProxy = 112617E920892AFD008005E6 /* PBXContainerItemProxy */;
-		};
 		112617ED20892B07008005E6 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = Launcher;
 			targetProxy = 112617EC20892B07008005E6 /* PBXContainerItemProxy */;
-		};
-		11DC8654207E911900809C2E /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = SonoSwift;
-			targetProxy = 11DC8653207E911900809C2E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -810,7 +777,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Sonos_Volume_Control/Sonos_Volume_Control-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -838,7 +805,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Sonos_Volume_Control/Sonos_Volume_Control-Bridging-Header.h";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
 		};
