@@ -10,6 +10,7 @@ import Cocoa
 import AVFoundation
 import AudioUnit
 import AppKit
+import SonoSwiftApi
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
@@ -43,7 +44,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         checkIfLaunchedAutomatically()
         
-        
+//        SonosAuthorizationController.shared.startAuthorization()
+        SonosAuthorizationController.shared.refreshAccessToken {
+            
+        }
     }
     
     func checkIfLaunchedAutomatically() {

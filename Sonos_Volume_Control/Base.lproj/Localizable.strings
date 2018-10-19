@@ -84,3 +84,9 @@
 
 /* Button label */
 "Remove all speakers" = "Remove all speakers";
+
+/* Window Title */
+"Manual speakers" = "Manual speakers";
+
+/* Window Title */
+"Add speakers manually" = "Add speakers manually";

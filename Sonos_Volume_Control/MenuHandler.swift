@@ -42,6 +42,7 @@ extension ControlVC {
     @objc func showManualMenu() {
         let windowController = storyboard?.instantiateController(withIdentifier: .init("AddManuallyWindow")) as? NSWindowController
         windowController?.showWindow(self)
+        windowController?.window?.title = NSLocalizedString("Add speakers manually", comment: "Window Title")
     }
     
     /// Turn on the automatic start of the app when starting the mac

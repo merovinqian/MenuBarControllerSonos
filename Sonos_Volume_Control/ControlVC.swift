@@ -65,6 +65,8 @@ class ControlVC: NSViewController {
         }
         
         firstStart = true
+        
+        
     }
     
     override func viewWillAppear() {

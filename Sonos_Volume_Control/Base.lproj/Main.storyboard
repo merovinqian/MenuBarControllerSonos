@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14113"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14313.18"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
-        <capability name="stacking Non-gravity area distributions on NSStackView" minToolsVersion="7.0" minSystemVersion="10.11"/>
-        <capability name="system font weights other than Regular or Bold" minToolsVersion="7.0"/>
     </dependencies>
     <scenes>
         <!--Application-->
@@ -687,7 +685,7 @@
         <scene sceneID="SxJ-JC-tNQ">
             <objects>
                 <windowController storyboardIdentifier="AddManuallyWindow" id="Ync-Us-zQA" sceneMemberID="viewController">
-                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="gJh-YI-s6H">
+                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="gJh-YI-s6H">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="2345" y="221" width="480" height="270"/>
@@ -702,7 +700,7 @@
                 </windowController>
                 <customObject id="9sh-0g-i5Z" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="485" y="266"/>
+            <point key="canvasLocation" x="618" y="341"/>
         </scene>
         <!--Add Manually Controller-->
         <scene sceneID="LcB-DR-X4d">
@@ -716,7 +714,7 @@
                                 <rect key="frame" x="20" y="227" width="351" height="22"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="192.168.0.32" drawsBackground="YES" id="eFa-0e-U59">
                                     <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
@@ -760,7 +758,7 @@ In the Menu select: Sonos-&gt; About my Sonos System</string>
                             <scrollView autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sW1-2x-AQO">
                                 <rect key="frame" x="20" y="8" width="440" height="120"/>
                                 <clipView key="contentView" id="HXb-1C-j8F">
-                                    <rect key="frame" x="1" y="23" width="438" height="96"/>
+                                    <rect key="frame" x="1" y="0.0" width="438" height="119"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" alternatingRowBackgroundColors="YES" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" headerView="ybo-9x-a8h" viewBased="YES" id="lWe-km-feQ">
@@ -770,7 +768,7 @@ In the Menu select: Sonos-&gt; About my Sonos System</string>
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                             <tableColumns>
-                                                <tableColumn identifier="" width="435" minWidth="10" maxWidth="3.4028234663852886e+38" id="Rgn-jN-Puv">
+                                                <tableColumn width="435" minWidth="10" maxWidth="3.4028234663852886e+38" id="Rgn-jN-Puv">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="IP Address">
                                                         <font key="font" metaFont="smallSystem"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -811,11 +809,11 @@ In the Menu select: Sonos-&gt; About my Sonos System</string>
                                         </tableView>
                                     </subviews>
                                 </clipView>
-                                <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="HsV-gY-mpv">
+                                <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="HsV-gY-mpv">
                                     <rect key="frame" x="1" y="103" width="438" height="16"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
-                                <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="0jL-PX-GME">
+                                <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="0jL-PX-GME">
                                     <rect key="frame" x="224" y="17" width="15" height="102"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
@@ -880,7 +878,7 @@ In the Menu select: Sonos-&gt; About my Sonos System</string>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="03R-pu-8p0">
-                                <rect key="frame" x="6" y="53" width="4" height="17"/>
+                                <rect key="frame" x="6" y="54" width="4" height="16"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" continuous="YES" sendsActionOnEndEditing="YES" alignment="left" usesSingleLineMode="YES" id="9Va-bp-bbK">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -889,7 +887,7 @@ In the Menu select: Sonos-&gt; About my Sonos System</string>
                                 <accessibility description="Current Song Label"/>
                             </textField>
                             <textField hidden="YES" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="V79-m7-Tey">
-                                <rect key="frame" x="37" y="25" width="163" height="17"/>
+                                <rect key="frame" x="37" y="26" width="163" height="17"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="No Sonos speakers found" id="CHc-IY-xoI">
                                     <font key="font" metaFont="systemMedium" size="13"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -897,10 +895,10 @@ In the Menu select: Sonos-&gt; About my Sonos System</string>
                                 </textFieldCell>
                             </textField>
                             <customView hidden="YES" translatesAutoresizingMaskIntoConstraints="NO" id="euI-Bt-dbz">
-                                <rect key="frame" x="8" y="25" width="206" height="24"/>
+                                <rect key="frame" x="8" y="26" width="206" height="24"/>
                                 <subviews>
                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="KtY-82-ql5" customClass="PlayPauseButton" customModule="DebugTarget" customModuleProvider="target">
-                                        <rect key="frame" x="91" y="-2" width="24" height="24"/>
+                                        <rect key="frame" x="90" y="-2" width="26" height="24"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="21" id="5cq-Fn-c7h"/>
                                             <constraint firstAttribute="width" constant="24" id="IRh-8q-zCk"/>
@@ -915,7 +913,7 @@ In the Menu select: Sonos-&gt; About my Sonos System</string>
                                         </connections>
                                     </button>
                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="aUg-Gc-k5u">
-                                        <rect key="frame" x="136" y="-2" width="24" height="24"/>
+                                        <rect key="frame" x="135" y="-2" width="26" height="24"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="24" id="vEO-vv-8KR"/>
                                             <constraint firstAttribute="height" constant="21" id="z0D-om-227"/>
@@ -930,7 +928,7 @@ In the Menu select: Sonos-&gt; About my Sonos System</string>
                                         </connections>
                                     </button>
                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Kdr-P3-YGY">
-                                        <rect key="frame" x="46" y="-2" width="24" height="24"/>
+                                        <rect key="frame" x="45" y="-2" width="26" height="24"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="21" id="2lF-eN-O5w"/>
                                             <constraint firstAttribute="width" constant="24" id="CmW-BF-0vV"/>
@@ -982,18 +980,18 @@ In the Menu select: Sonos-&gt; About my Sonos System</string>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="88" id="BPG-PD-VrG"/>
                                 </constraints>
-                                <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="82C-y0-YTB">
+                                <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="82C-y0-YTB">
                                     <rect key="frame" x="-100" y="-100" width="170" height="16"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
-                                <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="5cu-DK-cBN">
+                                <scroller key="verticalScroller" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="5cu-DK-cBN">
                                     <rect key="frame" x="190" y="0.0" width="16" height="88"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <accessibility description="Scroll Area with speakers or groups" help="The Scroll Area contains all your speakers with check boxes or all your groups with radio buttons"/>
                             </scrollView>
                             <slider verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="G4u-lf-saW">
-                                <rect key="frame" x="30" y="2" width="159" height="19"/>
+                                <rect key="frame" x="30" y="2" width="159" height="20"/>
                                 <sliderCell key="cell" continuous="YES" state="on" alignment="left" maxValue="100" tickMarkPosition="above" sliderType="linear" id="BNO-bg-Prd"/>
                                 <accessibility description="Volume slider"/>
                                 <connections>

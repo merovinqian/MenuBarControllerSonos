@@ -27,6 +27,8 @@ class AddManuallyController: NSViewController {
         explanationLabel.stringValue = NSLocalizedString("To view the speakers IP Address: \nOpen the Sonos Controller App on your Mac.\nIn the Menu select: Sonos-> About my Sonos System", comment:"Explanation text")
         deleteAllButton.title = NSLocalizedString("Remove all speakers", comment: "Button label")
         tableViewLabel.stringValue = NSLocalizedString("Currently Added IP addresses: ", comment: "TableView description label")
+        
+        self.title = NSLocalizedString("Add speakers manually", comment: "Window Title")
     }
     
     

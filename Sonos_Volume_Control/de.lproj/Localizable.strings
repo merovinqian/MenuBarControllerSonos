@@ -80,7 +80,10 @@
 "Successfully added speaker" = "Lautsprecher wurde erfolgreich hinzugefügt";
 
 /* TableView description label */
-"Currently Added IP addresses: " = "Currently Added IP addresses: ";
+"Currently Added IP addresses: " = "Aktuell hinzugefügte IP Adressen:";
 
 /* Button label */
-"Remove all speakers" = "Remove all speakers";
+"Remove all speakers" = "Alle Speaker entfernen";
+
+/* Window Title */
+"Add speakers manually" = "Speaker manuell hinzufügen";
